@@ -1,0 +1,104 @@
+/* =============================================
+   @zuii/dropdown — dropdown.css
+   ============================================= */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown__trigger {
+  cursor: pointer;
+}
+
+.dropdown__menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 200px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12),
+              0 2px 8px rgba(15, 23, 42, 0.06);
+  padding: 6px;
+  z-index: 500;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px) scale(0.97);
+  transform-origin: top left;
+  transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.dropdown__menu--right {
+  left: auto;
+  right: 0;
+  transform-origin: top right;
+}
+
+.dropdown.is-open .dropdown__menu {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0) scale(1);
+}
+
+.dropdown__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 7px;
+  font-size: 14px;
+  color: #334155;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  transition: background 0.14s, color 0.14s;
+  user-select: none;
+}
+
+.dropdown__item:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.dropdown__item--danger {
+  color: #ef4444;
+}
+.dropdown__item--danger:hover {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.dropdown__item--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.dropdown__divider {
+  height: 1px;
+  background: #f1f5f9;
+  margin: 6px 0;
+}
+
+.dropdown__label {
+  padding: 6px 12px 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #94a3b8;
+}
+
+.dropdown__item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  flex-shrink: 0;
+  opacity: 0.7;
+}

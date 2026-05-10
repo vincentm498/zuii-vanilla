@@ -1,0 +1,16 @@
+/*
+ * ZUIi — ALL CSS
+ * Importe TOUS les composants UI.
+ * Idéal pour le playground ou intégration complète.
+ */
+
+@import "../avatar/avatar.css";
+@import "../button/button.css";
+@import "../badge/badge.css";
+@import "../card/card.css";
+@import "../input/input.css";
+@import "../modal/modal.css";
+@import "../dropdown/dropdown.css";
+@import "../toast/toast.css";
+@import "../sidebar/sidebar.css";
+@import "../Utils/color/color.css";

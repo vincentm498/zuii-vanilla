@@ -1,0 +1,10 @@
+{
+  "name": "@zuii/button",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "style": "button.css",
+  "files": ["index.js", "button.css"],
+  "keywords": ["ui", "component", "button"],
+  "license": "MIT"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "@zuii/theme",
+  "version": "0.0.1",
+  "description": "Design tokens for ZUIi",
+  "main": "dist/tokens.css",
+  "bin": {
+    "zuii-tokens": "scripts/build-tokens.js"
+  },
+  "scripts": {
+    "build": "node scripts/build-tokens.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

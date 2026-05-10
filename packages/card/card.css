@@ -1,0 +1,110 @@
+/* =============================================
+   @zuii/card — card.css
+   ============================================= */
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  transition: box-shadow 0.22s, transform 0.22s, border-color 0.22s;
+}
+
+.card--hoverable:hover {
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1), 0 4px 12px rgba(15, 23, 42, 0.06);
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+}
+
+.card--shadow { box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08); border-color: transparent; }
+.card--flat   { border: none; background: #f8fafc; }
+.card--glass  {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+}
+
+/* Card media */
+.card__media {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+}
+
+/* Card header */
+.card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px 0;
+}
+
+.card__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.card__header-text { flex: 1; }
+.card__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0 0 2px;
+}
+.card__subtitle {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* Card body */
+.card__body {
+  padding: 16px 20px;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* Card footer */
+.card__footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px 18px;
+}
+
+/* Stat card */
+.stat-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.stat-card__label {
+  font-size: 13px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+.stat-card__value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1;
+}
+.stat-card__change {
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.stat-card__change--up   { color: #16a34a; }
+.stat-card__change--down { color: #dc2626; }

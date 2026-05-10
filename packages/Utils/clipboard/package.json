@@ -1,0 +1,10 @@
+{
+  "name": "@zuii/clipboard",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "clipboard.ts",
+  "files": [
+    "clipboard.ts"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,20 @@
+<button class="btn btn--primary" data-modal-target="#modal-basic">Modal Standard</button>
+
+<div class="modal-overlay" id="modal-basic">
+  <div class="modal">
+    <div class="modal__header">
+      <h2 class="modal__title">Modal basique</h2>
+      <button class="modal__close" data-modal-close>✕</button>
+    </div>
+    <div class="modal__body">
+      <p>Ceci est une modal simple. Elle se ferme en cliquant sur ✕, sur l'overlay ou avec la touche <kbd>Echap</kbd>.
+      </p>
+      <p style="margin-top:12px;">Utilisez <code>data-modal-open="#id"</code> sur n'importe quel bouton pour l'ouvrir.
+      </p>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn--ghost" data-modal-close>Fermer</button>
+      <button class="btn btn--primary" data-modal-close>Compris !</button>
+    </div>
+  </div>
+</div>

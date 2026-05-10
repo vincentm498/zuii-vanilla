@@ -1,0 +1,10 @@
+{
+  "name": "@zuii/input",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "style": "input.css",
+  "files": ["index.js", "input.css"],
+  "keywords": ["ui", "component", "input"],
+  "license": "MIT"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@zuii/utils",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.ts",
+  "files": [
+    "index.ts",
+    "clipboard/clipboard.ts"
+  ],
+  "license": "MIT"
+}

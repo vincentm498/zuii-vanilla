@@ -1,0 +1,10 @@
+{
+  "name": "@zuii/dropdown",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "style": "dropdown.css",
+  "files": ["index.js", "dropdown.css", "dropdown.js"],
+  "keywords": ["ui", "component", "dropdown"],
+  "license": "MIT"
+}

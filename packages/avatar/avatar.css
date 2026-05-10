@@ -1,0 +1,141 @@
+/* =============================================
+   @zuii/avatar — avatar.css
+   ============================================= */
+
+.avatar {
+  display: inline-flex;
+  vertical-align: middle;
+  user-select: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--avatar-bg, #e9ecef);
+  color: var(--avatar-text, #495057);
+  font-weight: 600;
+}
+
+.avatar__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar__text {
+  font-size: 1em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.avatar__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar__icon svg {
+  width: 55%;
+  height: 55%;
+}
+
+/* Shapes */
+.avatar--round {
+  border-radius: 50%;
+
+  img {
+    border-radius: 50%;
+  }
+}
+
+.avatar--square {
+  border-radius: 0;
+}
+
+/* Sizes */
+.avatar--xs {
+  width: 24px;
+  height: 24px;
+  font-size: 10px;
+}
+
+.avatar--sm {
+  width: 32px;
+  height: 32px;
+  font-size: 12px;
+}
+
+.avatar--md {
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+}
+
+.avatar--lg {
+  width: 48px;
+  height: 48px;
+  font-size: 16px;
+}
+
+.avatar--xl {
+  width: 64px;
+  height: 64px;
+  font-size: 20px;
+}
+
+.avatar--xxl {
+  width: 80px;
+  height: 80px;
+  font-size: 24px;
+}
+
+/* Status Indicators */
+.avatar__status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 25%;
+  height: 25%;
+  border-radius: 50%;
+  border: 2px solid var(--bg-2, #fff);
+  background-color: #adb5bd;
+  z-index: 2;
+}
+
+.avatar__status--online {
+  background-color: #22c55e;
+}
+
+.avatar__status--offline {
+  background-color: #94a3b8;
+}
+
+.avatar__status--away {
+  background-color: #f59e0b;
+}
+
+.avatar__status--busy {
+  background-color: #ef4444;
+}
+
+/* Avatar Group */
+.avatar-group {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-group .avatar {
+  margin-left: -12px;
+  border: 2px solid var(--bg-2, #fff);
+}
+
+.avatar-group .avatar:first-child {
+  margin-left: 0;
+}
+
+/* Avatar Counter */
+.avatar-counter {
+  position: relative;
+  display: inline-flex;
+}

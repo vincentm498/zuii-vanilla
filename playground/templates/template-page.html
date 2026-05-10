@@ -1,0 +1,23 @@
+<section class="pg-section" id="{{routeId}}">
+  <div class="pg-section__header">
+    <h2 class="pg-section__title">{{title}}</h2>
+    <div style="display:flex; gap:10px; align-items:center;">
+      <code class="pg-install">npm install {{package}}</code>
+      <button class="btn btn--outline" style="padding: 4px 10px; font-size: 12px;"
+        data-clipboard="npm install {{package}}" data-clipboard-success="✅ Copié">
+        Copier
+      </button>
+    </div>
+  </div>
+
+  <!-- Les composants générés seront injectés ici -->
+  {{pageHtml}}
+
+  <!-- Documentation -->
+  <div class="pg-section__doc" id="doc-content">
+    {{docHtml}}
+  </div>
+
+  <!-- Pagination -->
+  {{paginationHtml}}
+</section>

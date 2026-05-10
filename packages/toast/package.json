@@ -1,0 +1,10 @@
+{
+  "name": "@zuii/toast",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "style": "toast.css",
+  "files": ["index.js", "toast.css", "toast.js"],
+  "keywords": ["ui", "component", "toast"],
+  "license": "MIT"
+}

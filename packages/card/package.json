@@ -1,0 +1,10 @@
+{
+  "name": "@zuii/card",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "style": "card.css",
+  "files": ["index.js", "card.css"],
+  "keywords": ["ui", "component", "card"],
+  "license": "MIT"
+}

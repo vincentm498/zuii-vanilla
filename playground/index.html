@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@zuii — Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- All component CSS -->
+  <link rel="stylesheet" href="./assets/styles/tokens.css">
+  <link rel="stylesheet" href="../packages/all/all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="playground.css">
+
+
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <div id="preview-sidebar" style="display: contents;"></div>
+
+  <!-- MAIN -->
+  <main class="pg-main">
+    <header class="pg-header">
+      <div>
+        <h1 class="pg-header__title">Component Playground</h1>
+        <p class="pg-header__sub">Bibliothèque UI — HTML · CSS statique</p>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <span class="badge badge--success"><span class="badge__dot"></span> v1.0.0</span>
+        <a href="https://www.npmjs.com" target="_blank" class="btn btn--dark btn--sm">npm publish →</a>
+      </div>
+    </header>
+
+    <!-- ── DYNAMIC COMPONENT VIEW ── -->
+    <div id="component-view"></div>
+
+  </main>
+
+  <!-- ── MODALS HTML CONTAINERS (Dynamic) ── -->
+  <div id="modals-container"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script type="module" src="playground.js"></script>
+</body>
+
+</html>

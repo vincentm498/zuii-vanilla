@@ -1,0 +1,65 @@
+/* =============================================
+   @zuii/color — color.css
+   Système de couleurs dynamique basé sur les tokens
+   ============================================= */
+
+/**
+ * 1. COMPORTEMENT GÉNÉRIQUE
+ * On définit comment les utilitaires utilisent les variables.
+ */
+
+/* Backgrounds : applique le fond et la couleur de texte de contraste */
+[class^="bg-"], [class*=" bg-"] {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Texts : applique la couleur de la teinte au texte */
+[class^="text-"], [class*=" text-"] {
+  color: var(--color-bg);
+}
+
+/**
+ * 2. ATTRIBUTION DES TEINTES
+ * Chaque classe définit ses propres variables.
+ */
+
+/* PRIMARY */
+.bg-primary, .text-primary { --color-bg: var(--primary-500); --color-text: #fff; }
+.bg-primary-light, .text-primary-light { --color-bg: var(--primary-100); --color-text: var(--primary-900); }
+.bg-primary-dark, .text-primary-dark { --color-bg: var(--primary-900); --color-text: #fff; }
+
+/* SECONDARY */
+.bg-secondary, .text-secondary { --color-bg: var(--secondary-500); --color-text: #fff; }
+.bg-secondary-light, .text-secondary-light { --color-bg: var(--secondary-100); --color-text: var(--secondary-900); }
+.bg-secondary-dark, .text-secondary-dark { --color-bg: var(--secondary-900); --color-text: #fff; }
+
+/* ACCENT */
+.bg-accent, .text-accent { --color-bg: var(--accent-500); --color-text: #fff; }
+.bg-accent-light, .text-accent-light { --color-bg: var(--accent-100); --color-text: var(--accent-900); }
+.bg-accent-dark, .text-accent-dark { --color-bg: var(--accent-900); --color-text: #fff; }
+
+/* SUCCESS */
+.bg-success, .text-success { --color-bg: var(--success-500); --color-text: #fff; }
+.bg-success-light, .text-success-light { --color-bg: var(--success-100); --color-text: var(--success-900); }
+.bg-success-dark, .text-success-dark { --color-bg: var(--success-900); --color-text: #fff; }
+
+/* WARNING */
+.bg-warning, .text-warning { --color-bg: var(--warning-500); --color-text: #fff; }
+.bg-warning-light, .text-warning-light { --color-bg: var(--warning-100); --color-text: var(--warning-900); }
+.bg-warning-dark, .text-warning-dark { --color-bg: var(--warning-900); --color-text: #fff; }
+
+/* DANGER / ERROR */
+.bg-danger, .text-danger, .bg-error, .text-error { --color-bg: var(--danger-500); --color-text: #fff; }
+.bg-danger-light, .text-danger-light, .bg-error-light, .text-error-light { --color-bg: var(--danger-100); --color-text: var(--danger-900); }
+.bg-danger-dark, .text-danger-dark, .bg-error-dark, .text-error-dark { --color-bg: var(--danger-900); --color-text: #fff; }
+
+/* NEUTRAL */
+.bg-neutral, .text-neutral { --color-bg: var(--neutral-500); --color-text: #fff; }
+.bg-neutral-light, .text-neutral-light { --color-bg: var(--neutral-100); --color-text: var(--neutral-900); }
+.bg-neutral-dark, .text-neutral-dark { --color-bg: var(--neutral-900); --color-text: #fff; }
+
+/* GREY */
+.bg-grey, .text-grey { --color-bg: var(--grey-500); --color-text: #fff; }
+.bg-grey-light, .text-grey-light { --color-bg: var(--grey-100); --color-text: var(--grey-900); }
+.bg-grey-dark, .text-grey-dark { --color-bg: var(--grey-900); --color-text: #fff; }

@@ -1,0 +1,7 @@
+{
+  "name": "@zuii/color",
+  "version": "1.0.0",
+  "description": "Color system for ZUIi",
+  "main": "color.html",
+  "license": "MIT"
+}

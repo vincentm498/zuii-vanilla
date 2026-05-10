@@ -1,0 +1,19 @@
+{
+  "name": "@zuii/all",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "files": ["index.js"],
+  "keywords": ["ui", "component", "library"],
+  "license": "MIT",
+  "dependencies": {
+    "@zuii/button":   "workspace:*",
+    "@zuii/modal":    "workspace:*",
+    "@zuii/dropdown": "workspace:*",
+    "@zuii/badge":    "workspace:*",
+    "@zuii/toast":    "workspace:*",
+    "@zuii/card":     "workspace:*",
+    "@zuii/input":    "workspace:*",
+    "@zuii/utils":    "workspace:*"
+  }
+}

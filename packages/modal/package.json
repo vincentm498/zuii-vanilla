@@ -1,0 +1,10 @@
+{
+  "name": "@zuii/modal",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "style": "modal.css",
+  "files": ["index.js", "modal.css", "modal.js"],
+  "keywords": ["ui", "component", "modal"],
+  "license": "MIT"
+}

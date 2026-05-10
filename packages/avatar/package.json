@@ -1,0 +1,10 @@
+{
+  "name": "@zuii/badge",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "style": "badge.css",
+  "files": ["index.js", "badge.css"],
+  "keywords": ["ui", "component", "badge"],
+  "license": "MIT"
+}
