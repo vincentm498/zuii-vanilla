@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "tokens": "node packages/theme/scripts/build-tokens.js --output ./playground/assets/styles/tokens.css"
+    "tokens": "node packages/theme/scripts/build-tokens.js --output ./playground/assets/styles/tokens.css",
+    "install-components": "node scripts/install-components.js"
+  },
+  "bin": {
+    "zuii-install": "scripts/install-components.js"
   },
   "devDependencies": {
     "vite": "^5.2.0"

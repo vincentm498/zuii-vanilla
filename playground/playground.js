@@ -13,7 +13,7 @@ import { clipboard, initColor } from '../packages/Utils/index.ts';
 
 // Import dynamique de tous les fichiers HTML des packages (Vite Magic)
 const allHtmlFragments = import.meta.glob('../packages/**/*.html', { query: '?raw', import: 'default' });
-const allMarkdownFiles = import.meta.glob('../packages/**/*.md', { query: '?raw', import: 'default' });
+const allMarkdownFiles = import.meta.glob(['../packages/**/*.md', '../docs/**/*.md'], { query: '?raw', import: 'default' });
 const allTemplates = import.meta.glob('./templates/*.html', { query: '?raw', import: 'default' });
 const allPages = import.meta.glob('./pages/*.html', { query: '?raw', import: 'default' });
 const allSidebar = import.meta.glob('../packages/sidebar/sidebar.html', { query: '?raw', import: 'default' });
@@ -137,25 +137,37 @@ async function renderComponent(routeId) {
   }
 
   // 1. Déterminer le chemin du dossier pour le Markdown et le Script
-  const folderParts = route.package.split('/').slice(1);
-  const folderPath = folderParts.join('/');
-  const baseName = folderParts.pop();
-
-  // 2. Déterminer le HTML de la page
-  const pageHtml = route.page ? await getAsset(route.page) : await generateGenericHtml(route);
-  const paginationHtml = generatePagination(routeId);
-
-  // 3. Récupérer et parser le Markdown si présent
+  let folderPath = '';
+  let baseName = '';
+  let pageHtml = '';
   let docHtml = '';
-  try {
-    const mdPath = `../packages/${folderPath}/${baseName}.md`;
-    if (allMarkdownFiles[mdPath]) {
-      const mdText = await allMarkdownFiles[mdPath]();
-      docHtml = marked.parse(mdText);
+
+  if (route.isDoc) {
+    // Cas spécial pour les pages de documentation pure
+    const mdText = await allMarkdownFiles[route.mdPath]();
+    docHtml = marked.parse(mdText);
+    pageHtml = '<section class="pg-section" style="padding: 0;"></section>'; // Conteneur vide pour le layout
+  } else {
+    // Cas standard pour les composants
+    const folderParts = route.package.split('/').slice(1);
+    folderPath = folderParts.join('/');
+    baseName = folderParts.pop();
+    
+    pageHtml = route.page ? await getAsset(route.page) : await generateGenericHtml(route);
+
+    // Récupérer et parser le Markdown si présent
+    try {
+      const mdPath = `../packages/${folderPath}/${baseName}.md`;
+      if (allMarkdownFiles[mdPath]) {
+        const mdText = await allMarkdownFiles[mdPath]();
+        docHtml = marked.parse(mdText);
+      }
+    } catch (e) {
+      console.warn(`Pas de documentation trouvée pour ${routeId}`);
     }
-  } catch (e) {
-    console.warn(`Pas de documentation trouvée pour ${routeId}`);
   }
+
+  const paginationHtml = generatePagination(routeId);
 
   // 4. Injecter dans le template principal
   const pageTemplate = await getAsset('templates/template-page.html');

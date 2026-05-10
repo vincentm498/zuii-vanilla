@@ -2,6 +2,16 @@
  * Configuration des routes du Playground
  */
 export const routes = {
+  installation: {
+    title: 'Installation',
+    isDoc: true,
+    mdPath: '../docs/installation.md'
+  },
+  cli: {
+    title: 'CLI Guide',
+    isDoc: true,
+    mdPath: '../docs/cli.md'
+  },
   color: {
     title: 'Color',
     package: '@zuii/Utils/color',
