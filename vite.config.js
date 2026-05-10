@@ -6,8 +6,12 @@ export default defineConfig(({ command }) => ({
     port: 3000,
     open: true
   },
+  css: {
+    devSourcemap: true
+  },
   build: {
     outDir: 'dist',
+    sourcemap: true,
     rollupOptions: {
       input: {
         main: 'index.html'

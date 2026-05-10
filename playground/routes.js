@@ -7,6 +7,11 @@ export const routes = {
     package: '@zuii/Utils/color',
     showCode: false
   },
+  spacing: {
+    title: 'Spacing',
+    package: '@zuii/Utils/spacing',
+    showCode: false
+  },
   avatar: {
     title: 'Avatar',
     package: '@zuii/avatar'

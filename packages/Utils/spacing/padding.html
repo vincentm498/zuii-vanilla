@@ -1,0 +1,71 @@
+<!-- Padding Utility Demonstration -->
+
+<section class="pg-section">
+  <h2 class="pg-section-title">Padding (Marges intérieures)</h2>
+  <p class="pg-section-sub">Les classes `p-{size}` ajoutent de l'espace à l'intérieur de l'élément, poussant le contenu vers le centre.</p>
+
+  <div class="pg-demo-container">
+    <div class="p-0 bg-primary-box">p-0</div>
+    <div class="p-2 bg-primary-box">p-2</div>
+    <div class="p-4 bg-primary-box">p-4</div>
+    <div class="p-6 bg-primary-box">p-6</div>
+    <div class="p-10 bg-primary-box">p-10</div>
+  </div>
+</section>
+
+<section class="pg-section">
+  <h2 class="pg-section-title">Directions spécifiques</h2>
+  <p class="pg-section-sub">`pt` (top), `pb` (bottom), `pl` (left), `pr` (right)</p>
+  
+  <div class="pg-demo-container">
+    <div class="pt-8 bg-secondary-box">pt-8</div>
+    <div class="pb-8 bg-secondary-box">pb-8</div>
+    <div class="pl-8 bg-secondary-box">pl-8</div>
+    <div class="pr-8 bg-secondary-box">pr-8</div>
+  </div>
+</section>
+
+<section class="pg-section">
+  <h2 class="pg-section-title">Axes</h2>
+  <p class="pg-section-sub">`px` (horizontal) et `py` (vertical)</p>
+  
+  <div class="pg-demo-container">
+    <div class="px-12 bg-accent-box">px-12</div>
+    <div class="py-12 bg-accent-box">py-12</div>
+  </div>
+</section>
+
+<section class="pg-section">
+  <h2 class="pg-section-title">Cas concret</h2>
+  <div style="background: var(--neutral-100); border-radius: 8px;" class="p-8">
+    <h3 class="m-0 mb-4">Conteneur p-8</h3>
+    <div style="background: white; border: 1px solid var(--neutral-200);" class="p-4">
+      <p class="m-0">Contenu imbriqué p-4</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pg-demo-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+    align-items: flex-start;
+  }
+  .bg-primary-box, .bg-secondary-box, .bg-accent-box {
+    color: white;
+    font-family: var(--font-family-mono);
+    font-size: 11px;
+    border: 2px solid rgba(0,0,0,0.1);
+    background-clip: content-box;
+    background-color: rgba(0,0,0,0.05); /* Couleur de la zone de padding */
+  }
+
+  /* Pour visualiser la zone de padding, on met un fond différent sur le texte interne ou on utilise pseudo-element? 
+     Plus simple : un span interne avec le vrai fond */
+  
+  .bg-primary-box { background-color: var(--primary-100); color: var(--primary-900); }
+  .bg-secondary-box { background-color: var(--secondary-100); color: var(--secondary-900); }
+  .bg-accent-box { background-color: var(--accent-100); color: var(--accent-900); }
+</style>
