@@ -174,7 +174,8 @@ async function renderComponent(routeId) {
   viewContainer.innerHTML = pageTemplate
     .replaceAll('{{routeId}}', routeId)
     .replaceAll('{{title}}', route.title)
-    .replaceAll('{{package}}', route.package)
+    .replaceAll('{{package}}', route.package || '')
+    .replaceAll('{{installVisibleClass}}', route.isDoc ? 'is-hidden' : '')
     .replaceAll('{{pageHtml}}', pageHtml)
     .replaceAll('{{docHtml}}', docHtml)
     .replaceAll('{{paginationHtml}}', paginationHtml);
