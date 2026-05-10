@@ -8,7 +8,14 @@ const path = require('path');
  * Copies .js and .css files from the library to the local project.
  */
 
-const targetBaseDir = path.join(process.cwd(), 'components', 'zuii');
+// Dossier de destination par défaut
+let targetBaseDir = path.join(process.cwd(), 'components', 'zuii');
+
+// Vérification d'un dossier personnalisé via --out ou -o
+const outIndex = process.argv.findIndex(arg => arg === '--out' || arg === '-o');
+if (outIndex !== -1 && process.argv[outIndex + 1]) {
+    targetBaseDir = path.resolve(process.cwd(), process.argv[outIndex + 1]);
+}
 
 // Resolve the source directory
 // Case 1: Running from the monorepo root (npm run install-components)
