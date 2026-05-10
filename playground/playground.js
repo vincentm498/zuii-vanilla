@@ -2,7 +2,7 @@
  * Playground JS — Orchestrateur principal
  */
 import { routes } from './routes.js';
-import { fetchHTML, escapeHtml, updateSidebarActive } from './utils.js';
+import { escapeHtml, updateSidebarActive } from './utils.js';
 import { marked } from 'marked';
 
 import { initAll } from '../packages/all/index.js';
@@ -13,6 +13,45 @@ import { clipboard, initColor } from '../packages/Utils/index.ts';
 
 // Import dynamique de tous les fichiers HTML des packages (Vite Magic)
 const allHtmlFragments = import.meta.glob('../packages/**/*.html', { query: '?raw', import: 'default' });
+const allMarkdownFiles = import.meta.glob('../packages/**/*.md', { query: '?raw', import: 'default' });
+const allTemplates = import.meta.glob('./templates/*.html', { query: '?raw', import: 'default' });
+const allPages = import.meta.glob('./pages/*.html', { query: '?raw', import: 'default' });
+const allSidebar = import.meta.glob('../packages/sidebar/sidebar.html', { query: '?raw', import: 'default' });
+
+/**
+ * Récupère un fragment HTML depuis les imports glob
+ */
+async function getAsset(path, type = 'html') {
+  let glob;
+  let fullPath = path;
+
+  if (path.startsWith('templates/')) {
+    glob = allTemplates;
+    fullPath = `./${path}`;
+  } else if (path.startsWith('pages/')) {
+    glob = allPages;
+    fullPath = `./${path}`;
+  } else if (path.includes('../packages/')) {
+    glob = type === 'md' ? allMarkdownFiles : allHtmlFragments;
+    fullPath = path;
+  } else {
+    // Fallback pour les chemins relatifs aux packages
+    glob = type === 'md' ? allMarkdownFiles : allHtmlFragments;
+    fullPath = `../packages/${path}`;
+  }
+
+  if (glob[fullPath]) {
+    return await glob[fullPath]();
+  }
+  
+  // Cas particulier pour la sidebar
+  if (path.includes('sidebar.html') && allSidebar['../packages/sidebar/sidebar.html']) {
+    return await allSidebar['../packages/sidebar/sidebar.html']();
+  }
+
+  console.error(`Asset non trouvé: ${fullPath}`);
+  return '';
+}
 
 /**
  * Génère le contenu HTML générique à partir des fragments d'un package
@@ -38,7 +77,7 @@ async function generateGenericHtml(route) {
     return a.localeCompare(b);
   });
 
-  const blockTemplate = await fetchHTML('templates/template-block.html');
+  const blockTemplate = await getAsset('templates/template-block.html');
   let pageHtml = '';
 
   for (const key of componentKeys) {
@@ -103,15 +142,15 @@ async function renderComponent(routeId) {
   const baseName = folderParts.pop();
 
   // 2. Déterminer le HTML de la page
-  const pageHtml = route.page ? await fetchHTML(route.page) : await generateGenericHtml(route);
+  const pageHtml = route.page ? await getAsset(route.page) : await generateGenericHtml(route);
   const paginationHtml = generatePagination(routeId);
 
   // 3. Récupérer et parser le Markdown si présent
   let docHtml = '';
   try {
-    const mdRes = await fetch(`../packages/${folderPath}/${baseName}.md`);
-    if (mdRes.ok) {
-      const mdText = await mdRes.text();
+    const mdPath = `../packages/${folderPath}/${baseName}.md`;
+    if (allMarkdownFiles[mdPath]) {
+      const mdText = await allMarkdownFiles[mdPath]();
       docHtml = marked.parse(mdText);
     }
   } catch (e) {
@@ -119,7 +158,7 @@ async function renderComponent(routeId) {
   }
 
   // 4. Injecter dans le template principal
-  const pageTemplate = await fetchHTML('templates/template-page.html');
+  const pageTemplate = await getAsset('templates/template-page.html');
   viewContainer.innerHTML = pageTemplate
     .replaceAll('{{routeId}}', routeId)
     .replaceAll('{{title}}', route.title)
@@ -135,7 +174,7 @@ async function renderComponent(routeId) {
   if (route.page) {
     const fetchElements = document.querySelectorAll('[data-fetch]');
     const fetchPromises = Array.from(fetchElements).map(async (el) => {
-      el.innerHTML = await fetchHTML(el.getAttribute('data-fetch'));
+      el.innerHTML = await getAsset(el.getAttribute('data-fetch'));
     });
     await Promise.all(fetchPromises);
   }
@@ -215,8 +254,7 @@ function initTheme() {
 async function init() {
   // 1. Sidebar
   try {
-    const sidebarRes = await fetch('../packages/sidebar/sidebar.html');
-    const sidebarHtml = await sidebarRes.text();
+    const sidebarHtml = await getAsset('../packages/sidebar/sidebar.html');
     const container = document.getElementById('preview-sidebar');
     if (container) container.innerHTML = sidebarHtml;
   } catch (e) { console.error('Sidebar error:', e); }
