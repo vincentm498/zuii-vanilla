@@ -2,6 +2,7 @@
  * @zuii/clipboard
  * Utilitaire réutilisable en TypeScript pour copier du texte dans le presse-papier.
  */
+import { toast } from '../../toast/toast.js';
 export class Clipboard {
   private successDuration: number;
 
@@ -44,7 +45,7 @@ export class Clipboard {
    */
   init(container: HTMLElement | Document = document) {
     const buttons = container.querySelectorAll<HTMLElement>('[data-clipboard]');
-    
+
     buttons.forEach(btn => {
       if (btn.hasAttribute('data-clipboard-initialized')) return;
       btn.setAttribute('data-clipboard-initialized', 'true');
@@ -63,14 +64,16 @@ export class Clipboard {
 
   private showSuccess(btn: HTMLElement) {
     const originalHtml = btn.innerHTML;
-    const successMsg = btn.getAttribute('data-clipboard-success') || '✅ Copié';
-    
+    const successMsg = btn.getAttribute('data-clipboard-success') || 'Le code a été copié dans le presse-papier';
+
     // Pour éviter d'écraser la taille du bouton de façon brutale, on peut définir un min-width
     const rect = btn.getBoundingClientRect();
     btn.style.minWidth = `${rect.width}px`;
-    
-    btn.innerHTML = successMsg;
+
     btn.classList.add('is-copied');
+
+    // Display Toast notification
+    toast.success(successMsg);
 
     setTimeout(() => {
       btn.innerHTML = originalHtml;
