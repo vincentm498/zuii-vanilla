@@ -3,7 +3,7 @@
  */
 import { routes } from './routes.js';
 import { escapeHtml, updateSidebarActive } from './utils.js';
-import { marked } from 'marked';
+import { renderMarkdown } from './markdown.js';
 
 import { initAll } from '../packages/all/index.js';
 
@@ -11,9 +11,11 @@ import { initDropdown } from '../packages/dropdown/dropdown.js';
 import { toast } from '../packages/toast/toast.js';
 import { clipboard, initColor } from '../packages/Utils/index.ts';
 
+
 // Import dynamique de tous les fichiers HTML des packages (Vite Magic)
 const allHtmlFragments = import.meta.glob('../packages/**/*.html', { query: '?raw', import: 'default' });
 const allMarkdownFiles = import.meta.glob(['../packages/**/*.md', '../docs/**/*.md'], { query: '?raw', import: 'default' });
+const allJsFilesRaw = import.meta.glob('../packages/**/*.js', { query: '?raw', import: 'default' });
 const allTemplates = import.meta.glob('./templates/*.html', { query: '?raw', import: 'default' });
 const allPages = import.meta.glob('./pages/*.html', { query: '?raw', import: 'default' });
 const allSidebar = import.meta.glob('../packages/sidebar/sidebar.html', { query: '?raw', import: 'default' });
@@ -43,7 +45,7 @@ async function getAsset(path, type = 'html') {
   if (glob[fullPath]) {
     return await glob[fullPath]();
   }
-  
+
   // Cas particulier pour la sidebar
   if (path.includes('sidebar.html') && allSidebar['../packages/sidebar/sidebar.html']) {
     return await allSidebar['../packages/sidebar/sidebar.html']();
@@ -52,6 +54,7 @@ async function getAsset(path, type = 'html') {
   console.error(`Asset non trouvé: ${fullPath}`);
   return '';
 }
+
 
 /**
  * Génère le contenu HTML générique à partir des fragments d'un package
@@ -84,22 +87,42 @@ async function generateGenericHtml(route) {
     const filename = key.split('/').pop().replace('.html', '');
     const label = filename === baseFolderName ? 'Défaut' : filename.replace(`${baseFolderName}-`, '').replace(/-/g, ' ');
     const displayLabel = label.charAt(0).toUpperCase() + label.slice(1);
-    
+
     // Get the rendered HTML
     const rawHtml = await allHtmlFragments[key]();
-    
+
     // Check if a demo file exists for the code preview
     const demoKey = key.replace('.html', '-demo.html');
     let codeToDisplay = rawHtml;
-    
+
     if (allHtmlFragments[demoKey]) {
       codeToDisplay = await allHtmlFragments[demoKey]();
     }
+
+    // Check if a JS init file exists for this fragment
+    const jsInitKey = key.replace('.html', '-init.js');
+    let jsContent = '';
+    let jsVisibleClass = 'is-hidden';
+
+    if (allJsFilesRaw[jsInitKey]) {
+      jsContent = await allJsFilesRaw[jsInitKey]();
+      jsVisibleClass = '';
+    }
+
+    // Sub-descriptions
+    const htmlDescription = route.descriptions?.html || '';
+    const jsDescription = route.descriptions?.js || '';
 
     pageHtml += blockTemplate
       .replaceAll('{{displayLabel}}', displayLabel)
       .replaceAll('{{content}}', rawHtml)
       .replaceAll('{{codeVisibleClass}}', codeVisibleClass)
+      .replaceAll('{{jsContent}}', jsContent)
+      .replaceAll('{{jsVisibleClass}}', jsVisibleClass)
+      .replaceAll('{{htmlDescription}}', htmlDescription)
+      .replaceAll('{{htmlDescVisibleClass}}', htmlDescription ? '' : 'is-hidden')
+      .replaceAll('{{jsDescription}}', jsDescription)
+      .replaceAll('{{jsDescVisibleClass}}', (jsContent && jsDescription) ? '' : 'is-hidden')
       .replaceAll('{{escapedContent}}', escapeHtml(codeToDisplay));
   }
 
@@ -144,25 +167,55 @@ async function renderComponent(routeId) {
 
   if (route.isDoc) {
     // Cas spécial pour les pages de documentation pure
-    const mdText = await allMarkdownFiles[route.mdPath]();
-    docHtml = marked.parse(mdText);
+    try {
+      const mdText = await allMarkdownFiles[route.mdPath]();
+      docHtml = renderMarkdown(mdText);
+    } catch (e) {
+      console.error(`Erreur rendu Markdown Doc pour ${routeId}:`, e);
+    }
     pageHtml = '<section class="pg-section" style="padding: 0;"></section>'; // Conteneur vide pour le layout
   } else {
     // Cas standard pour les composants
     const folderParts = route.package.split('/').slice(1);
     folderPath = folderParts.join('/');
     baseName = folderParts.pop();
-    
+
     pageHtml = route.page ? await getAsset(route.page) : await generateGenericHtml(route);
 
     // Récupérer et parser le Markdown si présent
     try {
       const mdPath = `../packages/${folderPath}/${baseName}.md`;
       if (allMarkdownFiles[mdPath]) {
-        const mdText = await allMarkdownFiles[mdPath]();
-        docHtml = marked.parse(mdText);
+        let mdText = await allMarkdownFiles[mdPath]();
+
+        // Injection dynamique de code via {{CODE:filename}}
+        const codeRegex = /{{CODE:([^}]+)}}/g;
+        const matches = [...mdText.matchAll(codeRegex)];
+        
+        for (const match of matches) {
+          const placeholder = match[0];
+          const filename = match[1];
+          const jsPath = `../packages/${folderPath}/${filename}`;
+          
+          if (allJsFilesRaw[jsPath]) {
+            const jsCode = await allJsFilesRaw[jsPath]();
+            const ext = filename.split('.').pop();
+            const lang = ext === 'js' ? 'javascript' : ext;
+            mdText = mdText.replace(placeholder, `\`\`\`${lang}\n${jsCode}\n\`\`\``);
+          }
+        }
+
+        // Rétrocompatibilité pour {{PACKAGE_JS}}
+        const jsPathDefault = `../packages/${folderPath}/${baseName}.js`;
+        if (mdText.includes('{{PACKAGE_JS}}') && allJsFilesRaw[jsPathDefault]) {
+          const jsCode = await allJsFilesRaw[jsPathDefault]();
+          mdText = mdText.replace('{{PACKAGE_JS}}', `\`\`\`javascript\n${jsCode}\n\`\`\``);
+        }
+
+        docHtml = renderMarkdown(mdText);
       }
     } catch (e) {
+      console.error(`Erreur rendu Markdown pour ${routeId}:`, e);
       console.warn(`Pas de documentation trouvée pour ${routeId}`);
     }
   }
@@ -170,7 +223,20 @@ async function renderComponent(routeId) {
   const paginationHtml = generatePagination(routeId);
 
   // 4. Injecter dans le template principal
-  const pageTemplate = await getAsset('templates/template-page.html');
+  let pageTemplate = await getAsset('templates/template-page.html');
+  const description = route.descriptions?.general || '';
+  const hasDescription = !!description;
+
+  // Gérer le bloc conditionnel simple {{#if hasDescription}}
+  if (hasDescription) {
+    pageTemplate = pageTemplate
+      .replace('{{#if hasDescription}}', '')
+      .replace('{{/if}}', '')
+      .replaceAll('{{description}}', description);
+  } else {
+    pageTemplate = pageTemplate.replace(/{{#if hasDescription}}[\s\S]*?{{\/if}}/, '');
+  }
+
   viewContainer.innerHTML = pageTemplate
     .replaceAll('{{routeId}}', routeId)
     .replaceAll('{{title}}', route.title)
@@ -194,19 +260,26 @@ async function renderComponent(routeId) {
 
   // 5. Initialiser les interactions
   initDropdown();
-  initToastsListeners();
   clipboard.init(viewContainer);
   if (routeId === 'color') initColor(viewContainer);
 
   // 6. Charger le script spécifique au composant s'il existe
 
-  try {
-    const componentModule = await import(`../packages/${folderPath}/${baseName}.js`);
-    if (componentModule.init) {
-      componentModule.init(viewContainer);
+  const initScripts = [
+    `../packages/${folderPath}/${baseName}-init.js`,
+    `../packages/${folderPath}/${baseName}.js`
+  ];
+
+  for (const scriptPath of initScripts) {
+    try {
+      const componentModule = await import(/* @vite-ignore */ scriptPath);
+      if (componentModule.init) {
+        componentModule.init(viewContainer);
+        break; 
+      }
+    } catch (e) {
+      // Continuer si le script n'existe pas
     }
-  } catch (e) {
-    // Le script n'existe pas ou erreur au chargement, on ignore silencieusement
   }
 
   if (window.Prism) window.Prism.highlightAllUnder(viewContainer);
@@ -215,22 +288,6 @@ async function renderComponent(routeId) {
   updateSidebarActive(routeId);
 }
 
-/**
- * Écouteurs pour les Toasts
- */
-function initToastsListeners() {
-  const btns = {
-    'btnToastSuccess': () => toast.success('Enregistrement réussi !'),
-    'btnToastError': () => toast.error('Une erreur est survenue.'),
-    'btnToastWarning': () => toast.warning('Attention !'),
-    'btnToastInfo': () => toast.info('Info message'),
-    'btnToastTitle': () => toast.success({ title: 'Titre', message: 'Message' })
-  };
-
-  Object.entries(btns).forEach(([id, fn]) => {
-    document.getElementById(id)?.addEventListener('click', fn);
-  });
-}
 
 /**
  * Gestion du Dark Mode

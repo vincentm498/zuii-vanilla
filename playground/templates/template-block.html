@@ -8,7 +8,10 @@
   </div>
 
   <div class="pg-demo-label {{codeVisibleClass}}">
-    <span>Code à utiliser</span>
+    <span>Code HTML à utiliser</span>
+  </div>
+  <div class="pg-demo-desc {{htmlDescVisibleClass}}">
+    {{htmlDescription}}
   </div>
   <div class="pg-demo-code-wrapper {{codeVisibleClass}}" style="position: relative;">
     <button class="btn btn--outline"
@@ -16,6 +19,24 @@
       data-clipboard="{{escapedContent}}">
       Copier
     </button>
-    <pre class="pg-code" style="margin: 0; padding-right: 80px;"><code class="language-html">{{escapedContent}}</code></pre>
+    <pre class="pg-code"
+      style="margin: 0; padding-right: 80px;"><code class="language-html">{{escapedContent}}</code></pre>
+  </div>
+
+  <!-- Section JS (optionnelle, affichée via jsVisibleClass) -->
+  <div class="pg-demo-label {{jsVisibleClass}}" style="margin-top: 15px;">
+    <span>Code JavaScript</span>
+  </div>
+  <div class="pg-demo-desc {{jsDescVisibleClass}}">
+    {{jsDescription}}
+  </div>
+  <div class="pg-demo-code-wrapper {{jsVisibleClass}}" style="position: relative;">
+    <button class="btn btn--outline"
+      style="position: absolute; top: 10px; right: 10px; padding: 4px 8px; font-size: 10px; cursor: pointer; z-index: 5; background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7);"
+      data-clipboard="{{jsContent}}">
+      Copier
+    </button>
+    <pre class="pg-code"
+      style="margin: 0; padding-right: 80px;"><code class="language-javascript">{{jsContent}}</code></pre>
   </div>
 </div>

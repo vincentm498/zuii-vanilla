@@ -11,7 +11,7 @@ import { toast } from '../toast/toast.js';
 
 export { initModal, openModal, closeModal } from '../modal/modal.js';
 export { initDropdown, openDropdown, closeDropdown, closeAllDropdowns } from '../dropdown/dropdown.js';
-export { showToast, toast, initToast } from '../toast/toast.js';
+export { showToast, toast } from '../toast/toast.js';
 
 /**
  * Initialise tous les composants interactifs d'un coup

@@ -2,7 +2,13 @@
    Playground styles
    ============================================= */
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 :root {
   --bg: #f8fafc;
@@ -15,7 +21,6 @@
   --border: #e2e8f0;
   --code-bg: #0f172a;
   --code-text: #e2e8f0;
-  --accent: #6366f1;
   --section-gap: 48px;
 }
 
@@ -29,7 +34,9 @@
   --code-bg: #020817;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
@@ -45,7 +52,8 @@ body {
 /* ── Main ── */
 .pg-main {
   flex: 1;
-  min-width: 0; /* Empêche l'overflow avec les blocs de code */
+  min-width: 0;
+  /* Empêche l'overflow avec les blocs de code */
   padding: 32px 40px 80px;
   max-width: 960px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -64,17 +72,38 @@ body {
   padding-bottom: 24px;
   border-bottom: 1px solid var(--border);
 }
-.pg-header__title { font-size: 28px; font-weight: 700; color: var(--text); }
-.pg-header__sub { font-size: 14px; color: var(--text-2); margin-top: 4px; }
+
+.pg-header__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.pg-header__sub {
+  font-size: 14px;
+  color: var(--text-2);
+  margin-top: 4px;
+}
 
 /* ── Section ── */
-.pg-section { margin-bottom: var(--section-gap); scroll-margin-top: 24px; }
+.pg-section {
+  margin-bottom: var(--section-gap);
+  scroll-margin-top: 24px;
+}
 
 .pg-section__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
+}
+
+.pg-section__description {
+  margin-bottom: 32px;
+  max-width: 800px;
+  line-height: 1.6;
+  color: var(--text-2);
+  font-size: 15px;
 }
 
 .pg-section__title {
@@ -84,12 +113,15 @@ body {
   position: relative;
   padding-left: 14px;
 }
+
 .pg-section__title::before {
   content: '';
   position: absolute;
-  left: 0; top: 4px; bottom: 4px;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
   width: 3px;
-  background: var(--accent);
+  background: var(--accent-500);
   border-radius: 999px;
 }
 
@@ -97,7 +129,7 @@ body {
   font-family: 'Fira Code', monospace;
   font-size: 12px;
   background: var(--code-bg);
-  color: #a5b4fc;
+  color: var(--accent-500);
   padding: 6px 12px;
   border-radius: 6px;
   user-select: all;
@@ -122,6 +154,14 @@ body {
   margin-bottom: 16px;
 }
 
+.pg-demo-desc {
+  font-size: 13px;
+  color: var(--text-2);
+  margin-top: -8px;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
 .pg-demo-row {
   display: flex;
   flex-wrap: wrap;
@@ -143,6 +183,7 @@ body {
   overflow-x: auto;
   margin-bottom: 0;
 }
+
 .pg-code code {
   font-family: 'Fira Code', monospace;
   font-size: 12.5px;
@@ -169,25 +210,54 @@ kbd {
   border-color: #1e293b;
   color: #e2e8f0;
 }
+
 [data-theme="dark"] .modal__header,
-[data-theme="dark"] .modal__footer { border-color: #1e293b; }
+[data-theme="dark"] .modal__footer {
+  border-color: #1e293b;
+}
+
 [data-theme="dark"] .modal__title,
-[data-theme="dark"] .card__title { color: #f1f5f9; }
-[data-theme="dark"] .card__subtitle { color: #475569; }
-[data-theme="dark"] .stat-card__value { color: #f1f5f9; }
+[data-theme="dark"] .card__title {
+  color: #f1f5f9;
+}
+
+[data-theme="dark"] .card__subtitle {
+  color: #475569;
+}
+
+[data-theme="dark"] .stat-card__value {
+  color: #f1f5f9;
+}
+
 [data-theme="dark"] .dropdown__menu {
   background: #0f172a;
   border-color: #1e293b;
 }
-[data-theme="dark"] .dropdown__item { color: #cbd5e1; }
-[data-theme="dark"] .dropdown__item:hover { background: #1e293b; color: #f1f5f9; }
+
+[data-theme="dark"] .dropdown__item {
+  color: #cbd5e1;
+}
+
+[data-theme="dark"] .dropdown__item:hover {
+  background: #1e293b;
+  color: #f1f5f9;
+}
+
 [data-theme="dark"] .input {
   background: #0f172a;
   border-color: #1e293b;
   color: #f1f5f9;
 }
-[data-theme="dark"] .btn--secondary { background: #1e293b; color: #e2e8f0; border-color: #334155; }
-[data-theme="dark"] .btn--secondary:hover { background: #334155; }
+
+[data-theme="dark"] .btn--secondary {
+  background: #1e293b;
+  color: #e2e8f0;
+  border-color: #334155;
+}
+
+[data-theme="dark"] .btn--secondary:hover {
+  background: #334155;
+}
 
 .is-hidden {
   display: none !important;

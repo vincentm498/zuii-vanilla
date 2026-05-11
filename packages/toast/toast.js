@@ -1,102 +1,97 @@
 /**
- * @zuii/toast — toast.js
- * Système de notifications toast
+ * @zuii/toast — toast.js (Bootstrap 5 Bridge)
+ * Système de notifications utilisant le moteur de Bootstrap
  */
 
-let container = null;
-const DEFAULT_DURATION = 4000;
-const DEFAULT_POSITION = 'top-right';
-
-const ICONS = {
-  success: '✓',
-  error:   '✕',
-  warning: '⚠',
-  info:    'ℹ',
-  default: '●',
+const BOOTSTRAP_BG = {
+  success: 'success',
+  error:   'danger',
+  warning: 'warning',
+  info:    'info',
+  default: 'dark',
 };
 
-function getContainer(position = DEFAULT_POSITION) {
-  if (!container) {
-    container = document.createElement('div');
-    container.className = `toast-container toast-container--${position}`;
-    document.body.appendChild(container);
+/**
+ * Récupère ou crée le conteneur de toasts Bootstrap
+ */
+function getContainer(position = 'top-0 end-0') {
+  // Mapping des positions simplifiées
+  let posClass = position;
+  if (position === 'top-right') posClass = 'top-0 end-0';
+  if (position === 'top-left') posClass = 'top-0 start-0';
+  if (position === 'bottom-right') posClass = 'bottom-0 end-0';
+  if (position === 'bottom-left') posClass = 'bottom-0 start-0';
+  if (position === 'top-center') posClass = 'top-0 start-50 translate-middle-x';
+  if (position === 'bottom-center') posClass = 'bottom-0 start-50 translate-middle-x';
+
+  const selector = `.toast-container.${posClass.split(' ').join('.')}`;
+  let c = document.querySelector(selector);
+  
+  if (!c) {
+    c = document.createElement('div');
+    c.className = `toast-container position-fixed p-3 ${posClass}`;
+    c.style.zIndex = '9999';
+    document.body.appendChild(c);
   }
-  return container;
+  return c;
 }
 
 /**
- * Affiche un toast
+ * Affiche un toast Bootstrap
  * @param {string|object} message  - Texte ou { title, message, type, duration, position }
  * @param {string} type            - 'success' | 'error' | 'warning' | 'info'
- * @param {object} options         - { duration, position, title }
  */
 export function showToast(message, type = 'default', options = {}) {
-  // Allow object as first arg: showToast({ title, message, type, duration })
   if (typeof message === 'object' && message !== null) {
     options = { ...message, ...options };
     type = options.type || type;
     message = options.message || '';
   }
 
-  const duration = options.duration ?? DEFAULT_DURATION;
-  const position = options.position ?? DEFAULT_POSITION;
-  const title    = options.title ?? null;
+  const duration = options.duration ?? 4000;
+  const title = options.title ?? null;
+  const bg = BOOTSTRAP_BG[type] || BOOTSTRAP_BG.default;
 
-  const c = getContainer(position);
+  const toastEl = document.createElement('div');
+  toastEl.className = `toast align-items-center text-white bg-${bg} border-0`;
+  toastEl.setAttribute('role', 'alert');
+  toastEl.setAttribute('aria-live', 'assertive');
+  toastEl.setAttribute('aria-atomic', 'true');
 
-  // Create toast element
-  const toast = document.createElement('div');
-  toast.className = `toast${type !== 'default' ? ` toast--${type}` : ''}`;
-
-  const icon = ICONS[type] || ICONS.default;
-
-  toast.innerHTML = `
-    <span class="toast__icon" aria-hidden="true">${icon}</span>
-    <div class="toast__content">
-      ${title ? `<div class="toast__title">${title}</div>` : ''}
-      <div class="toast__message">${message}</div>
+  toastEl.innerHTML = `
+    <div class="d-flex">
+      <div class="toast-body">
+        ${title ? `<strong>${title}</strong><br>` : ''}
+        ${message}
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
-    <button class="toast__close" aria-label="Fermer">✕</button>
-    ${duration > 0 ? `<div class="toast__progress" style="animation-duration:${duration}ms"></div>` : ''}
   `;
 
-  c.appendChild(toast);
+  const c = getContainer(options.position || 'top-right');
+  c.appendChild(toastEl);
 
-  // Close button
-  const closeBtn = toast.querySelector('.toast__close');
-  closeBtn.addEventListener('click', () => dismissToast(toast));
-
-  // Auto dismiss
-  let timer;
-  if (duration > 0) {
-    timer = setTimeout(() => dismissToast(toast), duration);
+  // Initialisation via l'API Bootstrap (objet global attendu)
+  if (window.bootstrap) {
+    const bsToast = new window.bootstrap.Toast(toastEl, {
+      delay: duration,
+      autohide: duration > 0
+    });
+    bsToast.show();
+  } else {
+    console.error('Bootstrap JS non trouvé. Assurez-vous que bootstrap.bundle.min.js est chargé.');
+    // Fallback minimaliste si BS n'est pas chargé
+    toastEl.classList.add('show');
+    setTimeout(() => toastEl.remove(), duration || 3000);
   }
 
-  // Pause on hover
-  toast.addEventListener('mouseenter', () => {
-    clearTimeout(timer);
-    const progress = toast.querySelector('.toast__progress');
-    if (progress) progress.style.animationPlayState = 'paused';
-  });
-  toast.addEventListener('mouseleave', () => {
-    const progress = toast.querySelector('.toast__progress');
-    if (progress) {
-      progress.style.animationPlayState = 'running';
-      timer = setTimeout(() => dismissToast(toast), 800);
-    }
+  toastEl.addEventListener('hidden.bs.toast', () => {
+    toastEl.remove();
   });
 
-  return toast;
+  return toastEl;
 }
 
-function dismissToast(toast) {
-  toast.classList.add('is-hiding');
-  toast.addEventListener('animationend', () => toast.remove(), { once: true });
-  // Fallback remove after 300ms
-  setTimeout(() => toast.remove(), 300);
-}
-
-// Shorthand helpers
 export const toast = {
   success: (msg, opts) => showToast(msg, 'success', opts),
   error:   (msg, opts) => showToast(msg, 'error',   opts),
@@ -104,9 +99,3 @@ export const toast = {
   info:    (msg, opts) => showToast(msg, 'info',    opts),
   show:    (msg, opts) => showToast(msg, 'default', opts),
 };
-
-export function initToast(options = {}) {
-  if (options.position) DEFAULT_POSITION;
-  // Init is optional — toasts can be called directly via showToast() / toast.success()
-  return toast;
-}

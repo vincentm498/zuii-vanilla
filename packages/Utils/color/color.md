@@ -29,7 +29,7 @@ Utilisez les classes `.text-[couleur]` pour appliquer une couleur au texte.
 
 ## Palettes disponibles
 
-Les teintes suivantes sont disponibles dans le système :
+Les teintes suivantes sont disponibles dans le système
 
 | Teinte | Usage |
 | :--- | :--- |
@@ -41,6 +41,8 @@ Les teintes suivantes sont disponibles dans le système :
 | `danger` / `error` | Erreurs et actions critiques |
 | `neutral` | Gris neutres (Slate) |
 | `grey` | Gris froids (Blue Gray) |
+
+{.table .table-sm .table-bordered}
 
 ## Personnalisation
 

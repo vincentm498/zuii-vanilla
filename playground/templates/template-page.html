@@ -9,6 +9,11 @@
       </button>
     </div>
   </div>
+  {{#if hasDescription}}
+  <div class="pg-section__description">
+    <p>{{description}}</p>
+  </div>
+  {{/if}}
 
   <!-- Les composants générés seront injectés ici -->
   {{pageHtml}}

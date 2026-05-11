@@ -1,0 +1,10 @@
+a {
+    text-decoration: none;
+    color: var(--accent-500);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+    color: color-mix(in srgb, var(--accent-500), black 20%);
+}
