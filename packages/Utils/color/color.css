@@ -3,6 +3,47 @@
    Système de couleurs dynamique basé sur les tokens
    ============================================= */
 
+:root {
+
+  --primary: var(--primary-500);
+  --primary-light: var(--primary-100);
+  --primary-dark: var(--primary-900);
+
+  --secondary: var(--secondary-500);
+  --secondary-light: var(--secondary-100);
+  --secondary-dark: var(--secondary-900);
+
+  --accent: var(--accent-500);
+  --accent-light: var(--accent-100);
+  --accent-dark: var(--accent-900);
+
+  --success: var(--success-500);
+  --success-light: var(--success-100);
+  --success-dark: var(--success-900);
+
+  --info: var(--info-500);
+  --info-light: var(--info-100);
+  --info-dark: var(--info-900);
+
+  --warning: var(--warning-500);
+  --warning-light: var(--warning-100);
+  --warning-dark: var(--warning-900);
+
+  --danger: var(--danger-500);
+  --danger-light: var(--danger-100);
+  --danger-dark: var(--danger-900);
+
+  --neutral: var(--neutral-500);
+  --neutral-light: var(--neutral-100);
+  --neutral-dark: var(--neutral-900);
+
+  --grey: var(--grey-500);
+  --grey-light: var(--grey-100);
+  --grey-dark: var(--grey-900);
+
+
+}
+
 /**
  * 1. COMPORTEMENT GÉNÉRIQUE
  * On définit comment les utilitaires utilisent les variables.
@@ -29,170 +70,191 @@
 /* PRIMARY */
 .bg-primary,
 .text-primary {
-  --color-bg: var(--primary-500);
+  --color-bg: var(--primary);
   --color-text: #fff;
 }
 
 .bg-primary-light,
 .text-primary-light {
-  --color-bg: var(--primary-100);
-  --color-text: var(--primary-900);
+  --color-bg: var(--primary-light);
+  --color-text: var(--primary-dark);
 }
 
 .bg-primary-dark,
 .text-primary-dark {
-  --color-bg: var(--primary-900);
+  --color-bg: var(--primary-dark);
   --color-text: #fff;
 }
 
 /* SECONDARY */
 .bg-secondary,
 .text-secondary {
-  --color-bg: var(--secondary-500);
+  --color-bg: var(--secondary);
   --color-text: #fff;
 }
 
 .bg-secondary-light,
 .text-secondary-light {
-  --color-bg: var(--secondary-100);
-  --color-text: var(--secondary-900);
+  --color-bg: var(--secondary-light);
+  --color-text: var(--secondary-dark);
 }
 
 .bg-secondary-dark,
 .text-secondary-dark {
-  --color-bg: var(--secondary-900);
+  --color-bg: var(--secondary-dark);
   --color-text: #fff;
 }
 
 /* ACCENT */
 .bg-accent,
 .text-accent {
-  --color-bg: var(--accent-500);
+  --color-bg: var(--accent);
   --color-text: #fff;
 }
 
 .bg-accent-light,
 .text-accent-light {
-  --color-bg: var(--accent-100);
-  --color-text: var(--accent-900);
+  --color-bg: var(--accent-light);
+  --color-text: var(--accent-dark);
 }
 
 .bg-accent-dark,
 .text-accent-dark {
-  --color-bg: var(--accent-900);
+  --color-bg: var(--accent-dark);
   --color-text: #fff;
 }
 
 /* SUCCESS */
 .bg-success,
 .text-success {
-  --color-bg: var(--success-500);
+  --color-bg: var(--success);
   --color-text: #fff;
 }
 
 .bg-success-light,
 .text-success-light {
-  --color-bg: var(--success-100);
-  --color-text: var(--success-900);
+  --color-bg: var(--success-light);
+  --color-text: var(--success-dark);
 }
 
 .bg-success-dark,
 .text-success-dark {
-  --color-bg: var(--success-900);
+  --color-bg: var(--success-dark);
   --color-text: #fff;
 }
 
 /* INFO */
 .bg-info,
 .text-info {
-  --color-bg: var(--info-500);
+  --color-bg: var(--info);
   --color-text: #fff;
 }
 
 .bg-info-light,
 .text-info-light {
-  --color-bg: var(--info-100);
-  --color-text: var(--info-900);
+  --color-bg: var(--info-light);
+  --color-text: var(--info-dark);
 }
 
 .bg-info-dark,
 .text-info-dark {
-  --color-bg: var(--info-900);
+  --color-bg: var(--info-dark);
   --color-text: #fff;
 }
 
 /* WARNING */
 .bg-warning,
 .text-warning {
-  --color-bg: var(--warning-500);
+  --color-bg: var(--warning);
   --color-text: #fff;
 }
 
 .bg-warning-light,
 .text-warning-light {
-  --color-bg: var(--warning-100);
-  --color-text: var(--warning-900);
+  --color-bg: var(--warning-light);
+  --color-text: var(--warning-dark);
 }
 
 .bg-warning-dark,
 .text-warning-dark {
-  --color-bg: var(--warning-900);
+  --color-bg: var(--warning-dark);
   --color-text: #fff;
 }
 
 /* DANGER */
 .bg-danger,
 .text-danger {
-  --color-bg: var(--danger-500);
+  --color-bg: var(--danger);
   --color-text: #fff;
 }
 
 .bg-danger-light,
 .text-danger-light {
-  --color-bg: var(--danger-100);
-  --color-text: var(--danger-900);
+  --color-bg: var(--danger-light);
+  --color-text: var(--danger-dark);
 }
 
 .bg-danger-dark,
 .text-danger-dark {
-  --color-bg: var(--danger-900);
+  --color-bg: var(--danger-dark);
   --color-text: #fff;
 }
 
 /* NEUTRAL */
 .bg-neutral,
 .text-neutral {
-  --color-bg: var(--neutral-500);
+  --color-bg: var(--neutral);
   --color-text: #fff;
 }
 
 .bg-neutral-light,
 .text-neutral-light {
-  --color-bg: var(--neutral-100);
-  --color-text: var(--neutral-900);
+  --color-bg: var(--neutral-light);
+  --color-text: var(--neutral-dark);
 }
 
 .bg-neutral-dark,
 .text-neutral-dark {
-  --color-bg: var(--neutral-900);
+  --color-bg: var(--neutral-dark);
   --color-text: #fff;
 }
 
 /* GREY */
 .bg-grey,
 .text-grey {
-  --color-bg: var(--grey-500);
+  --color-bg: var(--grey);
   --color-text: #fff;
 }
 
 .bg-grey-light,
 .text-grey-light {
-  --color-bg: var(--grey-100);
-  --color-text: var(--grey-900);
+  --color-bg: var(--grey-light);
+  --color-text: var(--grey-dark);
 }
 
 .bg-grey-dark,
 .text-grey-dark {
-  --color-bg: var(--grey-900);
+  --color-bg: var(--grey-dark);
   --color-text: #fff;
+}
+
+.color-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.color {
+  flex: 1;
+}
+
+.color__content {
+  display: flex;
+  gap: .5rem;
+  flex-direction: column;
+  flex: 1;
+}
+
+.color-section {
+  width: 100%;
+
 }

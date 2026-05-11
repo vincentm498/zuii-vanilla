@@ -17,3 +17,7 @@
 @import "../Utils/spacing/spacing.css";
 @import "../Utils/icon/icon.css";
 @import "../link/link.css";
+
+code {
+    color: var(--accent-500);
+}

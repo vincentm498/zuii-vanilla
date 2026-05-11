@@ -16,6 +16,7 @@ Utilisez les classes `.bg-[couleur]` pour appliquer une couleur de fond. Le text
 <div class="bg-primary-light">Primary Light (100)</div>
 <div class="bg-primary-dark">Primary Dark (900)</div>
 ```
+{.pg-code}
 
 ### Couleurs de texte (Typography)
 
@@ -26,6 +27,7 @@ Utilisez les classes `.text-[couleur]` pour appliquer une couleur au texte.
 <p class="text-success">Ce texte est vert.</p>
 <p class="text-danger-dark">Ce texte est rouge foncé.</p>
 ```
+{.pg-code}
 
 ## Palettes disponibles
 
