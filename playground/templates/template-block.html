@@ -7,36 +7,48 @@
     {{content}}
   </div>
 
-  <div class="pg-demo-label {{codeVisibleClass}}">
-    <span>Code HTML à utiliser</span>
-  </div>
-  <div class="pg-demo-desc {{htmlDescVisibleClass}}">
-    {{htmlDescription}}
-  </div>
-  <div class="pg-demo-code-wrapper {{codeVisibleClass}}" style="position: relative;">
-    <button class="btn btn--outline"
-      style="position: absolute; top: 10px; right: 10px; padding: 4px 8px; font-size: 10px; cursor: pointer; z-index: 5; background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7);"
-      data-clipboard="{{escapedContent}}">
-      Copier
-    </button>
-    <pre class="pg-code"
-      style="margin: 0; padding-right: 80px;"><code class="language-html">{{escapedContent}}</code></pre>
-  </div>
+  <!-- Code Tabs Section -->
+  <div class="pg-tabs-container is-collapsed" data-js-tabs-container>
+    <div class="pg-tabs-header">
+      <div class="pg-tabs-nav">
+        <button class="pg-tab-btn is-active" data-tab="html">HTML</button>
+        <button class="pg-tab-btn {{jsVisibleClass}}" data-tab="js">JavaScript</button>
+      </div>
+      
+      <div class="pg-tabs-toggle-wrapper" data-js-tabs-toggle>
+        <span data-js-toggle-text>Afficher le code source</span>
+        <i data-lucide="chevron-up" class="pg-tabs-toggle-icon"></i>
+      </div>
+    </div>
 
-  <!-- Section JS (optionnelle, affichée via jsVisibleClass) -->
-  <div class="pg-demo-label {{jsVisibleClass}}" style="margin-top: 15px;">
-    <span>Code JavaScript</span>
-  </div>
-  <div class="pg-demo-desc {{jsDescVisibleClass}}">
-    {{jsDescription}}
-  </div>
-  <div class="pg-demo-code-wrapper {{jsVisibleClass}}" style="position: relative;">
-    <button class="btn btn--outline"
-      style="position: absolute; top: 10px; right: 10px; padding: 4px 8px; font-size: 10px; cursor: pointer; z-index: 5; background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7);"
-      data-clipboard="{{jsContent}}">
-      Copier
-    </button>
-    <pre class="pg-code"
-      style="margin: 0; padding-right: 80px;"><code class="language-javascript">{{jsContent}}</code></pre>
+    <div class="pg-tabs-body-wrapper">
+      <div class="pg-tabs-content">
+        <!-- HTML Tab -->
+        <div class="pg-tab-pane is-active" id="html-{{id}}" data-tab-content="html">
+          <div class="pg-demo-desc {{htmlDescVisibleClass}}" style="padding: 16px 20px 0;">
+            {{htmlDescription}}
+          </div>
+          <div style="position: relative;">
+            <button class="pg-code-copy-btn" data-clipboard="{{escapedContent}}">
+              Copier
+            </button>
+            <pre class="pg-code"><code class="language-html">{{escapedContent}}</code></pre>
+          </div>
+        </div>
+
+        <!-- JS Tab -->
+        <div class="pg-tab-pane" id="js-{{id}}" data-tab-content="js">
+          <div class="pg-demo-desc {{jsDescVisibleClass}}" style="padding: 16px 20px 0;">
+            {{jsDescription}}
+          </div>
+          <div style="position: relative;">
+            <button class="pg-code-copy-btn" data-clipboard="{{jsContent}}">
+              Copier
+            </button>
+            <pre class="pg-code"><code class="language-javascript">{{jsContent}}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

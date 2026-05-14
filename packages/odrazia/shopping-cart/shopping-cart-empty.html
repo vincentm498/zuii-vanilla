@@ -1,0 +1,33 @@
+<!-- 
+  ZUII / Odrazia Shopping Cart - État Vide
+  Ce fichier montre l'apparence du panier lorsqu'il ne contient aucun article.
+-->
+
+<div class="cart" data-js-cart>
+  <!-- Contenu du panier (Caché car vide) -->
+  <div data-js-cart-content style="display: none;">
+    <div class="cart__head">
+      <p class="cart__head-item">Produit</p>
+      <p class="cart__head-item">Prix</p>
+      <p class="cart__head-item">Quantité</p>
+      <p class="cart__head-item">Total</p>
+    </div>
+    <div class="cart__body"></div>
+  </div>
+
+  <!-- État vide (Actif) -->
+  <div class="cart__empty" data-js-empty-state>
+    <div class="cart__empty-icon">🛒</div>
+    <div>
+      <h3 class="cart__summary-title cart__empty-title">Votre panier est vide</h3>
+      <p class="cart__empty-text">
+        Il semble que vous n'ayez pas encore ajouté d'articles à votre panier. 
+        Découvrez nos produits et commencez vos achats !
+      </p>
+    </div>
+
+    <a href="#" class="btn btn--primary btn--lg">
+      Retour vers la boutique
+    </a>
+  </div>
+</div>

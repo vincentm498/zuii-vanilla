@@ -1,0 +1,79 @@
+/**
+ * --- Promo Section ---
+ * Gère l'affichage du formulaire et de la liste des badges de remise.
+ */
+
+.cart__promo {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.cart__promo-form .input-group {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px; /* Plus serré pour gagner de la place */
+  width: 100%;
+  max-width: 100%; /* Empêche le débordement */
+}
+
+.cart__promo-input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px; /* Un peu moins de padding */
+  border-radius: 8px; /* Rayon un peu plus petit pour le look compact */
+  border: 1px solid #e2e8f0;
+  font-size: 13px; /* Taille de police légèrement réduite */
+  outline: none;
+  transition: all 0.2s;
+}
+
+.cart__promo-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+}
+
+.cart__promo-form .btn {
+  flex-shrink: 0;
+  padding: 8px 12px; /* Bouton plus compact */
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+.cart__promo-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+/* Badge de promotion appliquée */
+.cart__promo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #0369a1;
+}
+
+.cart__promo-code {
+  font-weight: 700;
+}
+
+.cart__promo-amount {
+  flex: 1;
+}
+
+.cart__promo-remove {
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

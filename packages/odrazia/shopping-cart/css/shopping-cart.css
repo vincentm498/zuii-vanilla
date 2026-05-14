@@ -1,0 +1,48 @@
+/* ==========================================================================
+   @zuii/odrazia-shopping-cart — Composant Panier d'achat
+   Orchestrateur des styles modulaires
+   ========================================================================== */
+
+@import "./_shopping-cart-head.css";    /* Styles des colonnes d'en-tête */
+@import "./_shopping-cart-item.css";    /* Styles des lignes d'articles et quantités */
+@import "./_shopping-cart-promo.css";   /* Styles de la gestion des promotions */
+@import "./_shopping-cart-footer.css";  /* Styles du résumé et des actions finales */
+@import "./_shopping-cart-empty.css";   /* Styles de l'état vide */
+@import "./shopping-cart-v2.css";       /* Layout V2 split avec sidebar */
+
+/**
+ * Conteneur principal du panier.
+ * Définit la structure globale, les bordures et l'ombre portée.
+ */
+.cart {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+}
+
+/* ==========================================================================
+   Responsive (Mobile)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Masquer l'en-tête tableau sur mobile */
+  .cart__head {
+    display: none;
+  }
+  
+  /* Passer les items en colonne */
+  .cart-item {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  /* Aligner les prix et contrôles avec le texte du produit */
+  .cart-item__single-price,
+  .cart-item__quantity,
+  .cart-item__total {
+    padding-left: 120px; 
+  }
+}

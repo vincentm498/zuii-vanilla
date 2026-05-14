@@ -15,7 +15,8 @@ import { clipboard, initColor } from '../packages/Utils/index.ts';
 // Import dynamique de tous les fichiers HTML des packages (Vite Magic)
 const allHtmlFragments = import.meta.glob('../packages/**/*.html', { query: '?raw', import: 'default' });
 const allMarkdownFiles = import.meta.glob(['../packages/**/*.md', '../docs/**/*.md'], { query: '?raw', import: 'default' });
-const allJsFilesRaw = import.meta.glob('../packages/**/*.js', { query: '?raw', import: 'default' });
+const allJsFilesRaw = import.meta.glob(['../packages/**/*.js', '../packages/**/*.ts'], { query: '?raw', import: 'default' });
+const allJsModules = import.meta.glob('../packages/**/*.{js,ts}');
 const allTemplates = import.meta.glob('./templates/*.html', { query: '?raw', import: 'default' });
 const allPages = import.meta.glob('./pages/*.html', { query: '?raw', import: 'default' });
 const allSidebar = import.meta.glob('../packages/sidebar/sidebar.html', { query: '?raw', import: 'default' });
@@ -99,14 +100,26 @@ async function generateGenericHtml(route) {
       codeToDisplay = await allHtmlFragments[demoKey]();
     }
 
-    // Check if a JS init file exists for this fragment
+    // Check if a JS or TS init file exists for this fragment
+    const tsInitKey = key.replace('.html', '-init.ts');
     const jsInitKey = key.replace('.html', '-init.js');
+    
+    // Fallback: Main package script
+    const mainTsKey = `../packages/${folderName}/js/${baseFolderName}.ts`;
+    const mainJsKey = `../packages/${folderName}/js/${baseFolderName}.js`;
+    
     let jsContent = '';
     let jsVisibleClass = 'is-hidden';
 
-    if (allJsFilesRaw[jsInitKey]) {
-      jsContent = await allJsFilesRaw[jsInitKey]();
-      jsVisibleClass = '';
+    // Priority: 1. Specific TS init, 2. Specific JS init, 3. Main TS file, 4. Main JS file
+    const potentialJsKeys = [tsInitKey, jsInitKey, mainTsKey, mainJsKey];
+    
+    for (const jsKey of potentialJsKeys) {
+      if (allJsFilesRaw[jsKey]) {
+        jsContent = await allJsFilesRaw[jsKey]();
+        jsVisibleClass = '';
+        break;
+      }
     }
 
     // Sub-descriptions
@@ -191,12 +204,12 @@ async function renderComponent(routeId) {
         // Injection dynamique de code via {{CODE:filename}}
         const codeRegex = /{{CODE:([^}]+)}}/g;
         const matches = [...mdText.matchAll(codeRegex)];
-        
+
         for (const match of matches) {
           const placeholder = match[0];
           const filename = match[1];
           const jsPath = `../packages/${folderPath}/${filename}`;
-          
+
           if (allJsFilesRaw[jsPath]) {
             const jsCode = await allJsFilesRaw[jsPath]();
             const ext = filename.split('.').pop();
@@ -264,21 +277,29 @@ async function renderComponent(routeId) {
   if (routeId === 'color') initColor(viewContainer);
 
   // 6. Charger le script spécifique au composant s'il existe
+  // On vérifie d'abord dans le glob (résolu par Vite) pour éviter les 404 réseau.
+  const packageBaseForScript = route.package.replace('@zuii/', '');
 
   const initScripts = [
-    `../packages/${folderPath}/${baseName}-init.js`,
-    `../packages/${folderPath}/${baseName}.js`
+    `../packages/${packageBaseForScript}/${baseName}-init.ts`,
+    `../packages/${packageBaseForScript}/js/${baseName}-init.ts`,
+    `../packages/${packageBaseForScript}/js/${baseName}.ts`,
+    `../packages/${packageBaseForScript}/${baseName}.ts`,
+    `../packages/${packageBaseForScript}/js/${baseName}.js`,
+    `../packages/${packageBaseForScript}/${baseName}.js`,
+    `../packages/${packageBaseForScript}/${baseName}-init.js`
   ];
 
   for (const scriptPath of initScripts) {
+    if (!allJsModules[scriptPath]) continue; // fichier inexistant → pas de requête réseau
     try {
-      const componentModule = await import(/* @vite-ignore */ scriptPath);
+      const componentModule = await allJsModules[scriptPath]();
       if (componentModule.init) {
         componentModule.init(viewContainer);
-        break; 
+        break;
       }
     } catch (e) {
-      // Continuer si le script n'existe pas
+      console.warn(`Erreur init script ${scriptPath}:`, e);
     }
   }
 
@@ -339,6 +360,58 @@ async function init() {
   });
 
   renderComponent(window.location.hash.substring(1) || 'buttons');
+  
+  initTabs();
+  initCollapse();
+}
+
+/**
+ * Gestion du repliage des blocs de code (Tabs)
+ */
+function initCollapse() {
+  document.body.addEventListener('click', (e) => {
+    const toggle = e.target.closest('[data-js-tabs-toggle]');
+    if (!toggle) return;
+
+    const container = toggle.closest('[data-js-tabs-container]');
+    if (container) {
+      const isCollapsed = container.classList.toggle('is-collapsed');
+      const textEl = container.querySelector('[data-js-toggle-text]');
+      if (textEl) {
+        textEl.textContent = isCollapsed ? 'Afficher le code source' : 'Masquer le code source';
+      }
+    }
+  });
+}
+
+/**
+ * Gestion du changement d'onglets
+ */
+function initTabs() {
+  document.body.addEventListener('click', (e) => {
+    const btn = e.target.closest('.pg-tab-btn');
+    if (!btn) return;
+
+    const container = btn.closest('.pg-demo-block');
+    const tabName = btn.getAttribute('data-tab');
+
+    // 1. Désactiver tous les onglets du bloc
+    container.querySelectorAll('.pg-tab-btn').forEach(b => b.classList.remove('is-active'));
+    container.querySelectorAll('.pg-tab-pane').forEach(p => p.classList.remove('is-active'));
+
+    // 2. Activer l'onglet sélectionné
+    btn.classList.add('is-active');
+    const pane = container.querySelector(`[data-tab-content="${tabName}"]`);
+    if (pane) pane.classList.add('is-active');
+
+    // 3. Auto-déplier si c'est replié
+    const tabsContainer = btn.closest('[data-js-tabs-container]');
+    if (tabsContainer && tabsContainer.classList.contains('is-collapsed')) {
+      tabsContainer.classList.remove('is-collapsed');
+      const textEl = tabsContainer.querySelector('[data-js-toggle-text]');
+      if (textEl) textEl.textContent = 'Masquer le code source';
+    }
+  });
 }
 
 /**

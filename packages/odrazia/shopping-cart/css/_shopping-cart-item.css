@@ -1,0 +1,118 @@
+/**
+ * --- Cart Items ---
+ * Gère l'affichage individuel de chaque produit et les contrôles de quantité.
+ */
+
+.cart__body {
+  padding: 0;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  align-items: center;
+  padding: 24px;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.2s;
+}
+
+.cart-item:hover {
+  background: #fcfdfe;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+/* Infos Produit (Vignette + Titre) */
+.cart-item__wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.cart-item__thumbnail {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+}
+
+.cart-item__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cart-item__content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cart-item__heading {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.cart-item__summary {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* Prix unitaire */
+.cart-item__single-price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.old-price {
+  font-size: 13px;
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+.current-price {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Contrôles de Quantité (Design Input Group) */
+.cart-item__quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8fafc;
+  padding: 4px;
+  border-radius: 10px;
+  width: fit-content;
+  border: 1px solid #e2e8f0;
+}
+
+.cart-item__quantity-input {
+  width: 40px;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  outline: none;
+}
+
+/* Prix total par ligne d'article */
+.cart-item__total {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+}

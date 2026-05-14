@@ -117,6 +117,20 @@
   box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35);
 }
 
+/* Ghost danger — action de suppression subtile (panier, liste...) */
+.btn--ghost-danger {
+  background: transparent;
+  color: var(--danger-500);
+  border-color: transparent;
+  padding: 6px 8px;
+}
+
+.btn--ghost-danger:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.08);
+  color: var(--danger-600, #dc2626);
+  border-color: transparent;
+}
+
 .btn--success {
   background: var(--success-500);
   color: var(--white);

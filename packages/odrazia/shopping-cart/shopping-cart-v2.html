@@ -1,0 +1,161 @@
+<div class="cart cart--v2" data-js-cart>
+  <!-- Partie principale : Liste des produits -->
+  <div class="cart__main" data-js-cart-content>
+    <div class="cart__head">
+      <p class="cart__head-item">Détails du Produit</p>
+      <p class="cart__head-item">Prix</p>
+      <p class="cart__head-item">Quantité</p>
+      <p class="cart__head-item">Total</p>
+    </div>
+
+    <div class="cart__body">
+      <!-- Article 1 -->
+      <article class="cart-item">
+        <div class="cart-item__wrapper">
+          <div class="cart-item__thumbnail">
+            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=300&q=80"
+              alt="Casque" class="cart-item__img">
+          </div>
+          <div class="cart-item__content">
+            <h3 class="cart-item__heading">Casque Sans Fil Premium</h3>
+            <ul class="cart-item__summary">
+              <li>Noir Sidéral</li>
+              <li>Bluetooth 5.2</li>
+            </ul>
+            <form class="cart-item__delete" data-js-item-delete>
+              <button type="submit" class="btn btn--ghost-danger btn--sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                Supprimer
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="cart-item__single-price">
+          <span class="old-price">149,00 €</span>
+          <span class="current-price">129,00 €</span>
+        </div>
+
+        <div class="cart-item__quantity">
+          <form class="cart-item__update" data-js-item-update>
+            <div class="cart-item__quantity-controls">
+              <button type="button" class="btn btn--icon btn--sm btn--secondary"
+                data-js-number-decrement="#qty-v2-1">-</button>
+              <input type="number" id="qty-v2-1" name="quantity" value="1" min="1" class="cart-item__quantity-input">
+              <button type="button" class="btn btn--icon btn--sm btn--secondary"
+                data-js-number-increment="#qty-v2-1">+</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="cart-item__total">
+          <span>129,00 €</span>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="cart-item">
+        <div class="cart-item__wrapper">
+          <div class="cart-item__thumbnail">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=300&q=80"
+              alt="Montre" class="cart-item__img">
+          </div>
+          <div class="cart-item__content">
+            <h3 class="cart-item__heading">Montre Connectée Sport</h3>
+            <ul class="cart-item__summary">
+              <li>44mm</li>
+              <li>Silicone Orange</li>
+            </ul>
+            <form class="cart-item__delete" data-js-item-delete>
+              <button type="submit" class="btn btn--ghost-danger btn--sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+                Supprimer
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="cart-item__single-price">
+          <span class="current-price">199,00 €</span>
+        </div>
+
+        <div class="cart-item__quantity">
+          <form class="cart-item__update" data-js-item-update>
+            <div class="cart-item__quantity-controls">
+              <button type="button" class="btn btn--icon btn--sm btn--secondary"
+                data-js-number-decrement="#qty-v2-2">-</button>
+              <input type="number" id="qty-v2-2" name="quantity" value="2" min="1" class="cart-item__quantity-input">
+              <button type="button" class="btn btn--icon btn--sm btn--secondary"
+                data-js-number-increment="#qty-v2-2">+</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="cart-item__total">
+          <span>398,00 €</span>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- Barre latérale : Résumé et Paiement -->
+  <aside class="cart__sidebar" data-js-cart-content>
+    <h2 class="cart__summary-title">Résumé</h2>
+
+    <div class="cart__summary-table">
+      <div class="cart__summary-row">
+        <span>Sous-total</span>
+        <span data-js-total-subtotal>527,00 €</span>
+      </div>
+      <div class="cart__summary-row cart__summary-row--discount">
+        <span>Promotion</span>
+        <span data-js-total-discount>-0,00 €</span>
+      </div>
+      <div class="cart__summary-row">
+        <span>Livraison</span>
+        <span>Calculée à l'étape suivante</span>
+      </div>
+      <div class="cart__summary-row cart__summary-row--total">
+        <span>Total (TTC)</span>
+        <span data-js-total-ttc>527,00 €</span>
+      </div>
+    </div>
+
+    <div class="cart__promo">
+      <p class="cart__promo-title">Code promotionnel ?</p>
+      <form class="cart__promo-form" data-js-promo-form>
+        <div class="input-group">
+          <input type="text" name="code" placeholder="Code de promotion" class="cart__promo-input">
+          <button type="submit" class="btn btn--primary">Appliquer</button>
+        </div>
+      </form>
+      <ul class="cart__promo-list" data-js-promo-list></ul>
+    </div>
+
+    <div class="cart__actions">
+      <a href="#" class="btn btn--primary btn--lg btn--block cart__checkout-btn">
+        Procéder au paiement
+      </a>
+      <a href="#" class="btn btn--ghost btn--block cart__continue-btn">
+        Continuer mes achats
+      </a>
+    </div>
+  </aside>
+
+  <!-- État vide (Commun) -->
+  <div class="cart__empty" data-js-empty-state style="display: none;">
+    <div class="cart__empty-icon">🛒</div>
+    <h3 class="cart__summary-title cart__empty-title">Votre panier est vide</h3>
+    <p class="cart__empty-text">Dénichez vos futurs coups de cœur dans notre boutique !</p>
+    <a href="#" class="btn btn--primary btn--lg">Retour à l'accueil</a>
+  </div>
+
+  <!-- Template Promo -->
+  <template data-js-template-promo>
+    <li class="cart__promo-item">
+      <span class="cart__promo-code" data-js-promo-code-view></span>
+      <span class="cart__promo-amount" data-js-promo-amount-view></span>
+      <button class="cart__promo-remove" data-js-promo-delete>✕</button>
+    </li>
+  </template>
+</div>

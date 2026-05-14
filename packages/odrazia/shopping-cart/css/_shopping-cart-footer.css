@@ -1,0 +1,68 @@
+/**
+ * --- Footer & Summary ---
+ * Gère le pied de page du panier (Boutons d'action et récapitulatif des prix).
+ */
+
+.cart__footer {
+  padding: 32px 24px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  border-radius: 0 0 16px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+}
+
+/* Bloc des boutons d'actions (gauche) */
+.cart__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Bloc du récapitulatif financier (droite) */
+.cart__summary-content {
+  width: 100%;
+  max-width: 400px;
+}
+
+.cart__summary-title {
+  margin: 0 0 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Tableau des totaux */
+.cart__summary-table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.cart__summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* Mise en évidence de la remise */
+.cart__summary-row--discount {
+  color: #dc2626;
+  font-weight: 500;
+}
+
+/* Mise en évidence du TTC final */
+.cart__summary-row--total {
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}

@@ -1,0 +1,39 @@
+/**
+ * --- Empty Cart State ---
+ * Styles pour l'affichage lorsque le panier ne contient aucun article.
+ */
+
+.cart__empty {
+  padding: 100px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Rondelle de l'icône / emoji */
+.cart__empty-icon {
+  width: 80px;
+  height: 80px;
+  background: #f1f5f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #94a3b8;
+  margin: auto;
+  margin-bottom: 8px;
+}
+
+.cart__empty-title {
+  margin-bottom: 8px;
+}
+
+.cart__empty-text {
+  color: #64748b;
+  font-size: 14px;
+  max-width: 300px;
+  margin: 0 auto;
+}

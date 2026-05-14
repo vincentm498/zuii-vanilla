@@ -69,5 +69,33 @@ export const routes = {
   utils: {
     title: 'Utils',
     package: '@zuii/utils'
+  },
+  'shopping-cart': {
+    title: 'Shopping Cart',
+    package: '@zuii/odrazia/shopping-cart',
+    descriptions: {
+      general: 'Le composant shopping cart standard avec une structure tabulaire classique. Idéal pour les intégrations simples.',
+      html: 'Utilisez la classe de base <code>.cart</code>. Les éléments interactifs sont identifiés par les attributs <code>data-js-item-delete</code> et <code>data-js-promo-form</code>.',
+      js: 'L\'initialisation est automatique via <code>ShoppingCart.init()</code>. Le système gère seul les calculs de totaux et les interactions de suppression.'
+    }
+  },
+  'shopping-cart-empty': {
+    title: 'Shopping Cart Empty',
+    package: '@zuii/odrazia/shopping-cart',
+    page: '../packages/odrazia/shopping-cart/shopping-cart-empty.html',
+    descriptions: {
+      general: 'Variante montrant l\'état vide du panier d\'achat avec un message d\'incitation à l\'action.',
+      html: 'La structure utilise <code>.cart__empty</code> avec des éléments de titre et d\'image pour un rendu épuré.'
+    }
+  },
+  'shopping-cart-v2': {
+    title: 'Shopping Cart Premium V2',
+    package: '@zuii/odrazia/shopping-cart',
+    page: '../packages/odrazia/shopping-cart/shopping-cart-v2.html',
+    descriptions: {
+      general: 'Design "Split Layout" moderne avec barre latérale sticky pour le résumé de commande. Optimisé pour la conversion.',
+      html: 'Utilisez le modificateur <code>.cart--v2</code> sur le conteneur principal. La structure se divise en <code>.cart__main</code> pour les articles et <code>.cart__sidebar</code> pour le résumé.',
+      js: 'Même logique d\'initialisation que la V1. Le composant détecte la structure V2 et adapte le comportement de la sidebar collante.'
+    }
   }
 };
