@@ -1,0 +1,7 @@
+/**
+ * ZUIi / Odrazia Auth Component
+ * Gère l'affichage des formulaires de connexion et d'inscription.
+ */
+
+@import "./_auth-card.css";
+@import "./_auth-form.css";

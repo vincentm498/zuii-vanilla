@@ -1,0 +1,50 @@
+/**
+ * --- Auth Card ---
+ * Structure principale du conteneur d'authentification.
+ */
+
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-8) var(--spacing-4);
+  min-height: 60vh;
+  min-width: 50vw;
+  margin: auto;
+
+}
+
+.auth__container {
+  width: 100%;
+  max-width: 440px;
+  background: var(--white);
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-8);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+.auth__header {
+  text-align: center;
+  margin-bottom: var(--spacing-6);
+}
+
+.auth__title {
+  margin: 0;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--neutral-900);
+}
+
+.auth__footer {
+  margin-top: var(--spacing-6);
+  padding-top: var(--spacing-6);
+  border-top: 1px solid var(--neutral-100);
+  text-align: center;
+}
+
+.auth__footer-text {
+  font-size: var(--font-size-sm);
+  color: var(--neutral-500);
+  margin-bottom: var(--spacing-3);
+}

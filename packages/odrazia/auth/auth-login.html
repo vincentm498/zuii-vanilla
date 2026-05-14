@@ -1,0 +1,37 @@
+<!-- 
+  ZUII / Odrazia Auth - Login
+  Composant de connexion standard.
+-->
+<section class="auth">
+  <div class="auth__container" data-js-auth-container>
+    <div class="auth__header">
+      <h1 class="auth__title">Connexion</h1>
+    </div>
+
+    <div class="auth__content">
+      <form id="formLogin" class="auth__form" data-js-auth-form="login" action="#" method="POST">
+        <div class="auth__form-group">
+          <label for="email" class="auth__label">Email</label>
+          <input type="email" id="email" name="_username" placeholder="exemple@gmail.com" required class="auth__input">
+        </div>
+
+        <div class="auth__form-group">
+          <label for="password" class="auth__label">Mot de passe</label>
+          <input type="password" id="password" name="_password" placeholder="•••••••••" required class="auth__input">
+          <div class="auth__form-helper">
+            <a href="auth-forgot.html" class="auth__link">Mot de passe oublié ?</a>
+          </div>
+        </div>
+
+        <div class="auth__submit">
+          <button type="submit" class="btn btn--primary btn--block">Se connecter</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="auth__footer">
+      <p class="auth__footer-text">Nouveau Client ?</p>
+      <a href="auth-register.html" class="auth__link" style="font-size: var(--font-size-sm); text-decoration: underline;">S'inscrire</a>
+    </div>
+  </div>
+</section>

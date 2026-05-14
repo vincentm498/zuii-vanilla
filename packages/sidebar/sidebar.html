@@ -71,10 +71,50 @@
       </span>
       <span class="sidebar__nav-item-text">Toasts</span></a>
     <div class="sidebar__nav-label">Exemples</div>
-    <a href="#shopping-cart" class="sidebar__nav-item" data-section="shopping-cart"><span
-        class="sidebar__nav-item-icon icon--xs">
-        <i data-lucide="chevron-right"></i>
-      </span> <span class="sidebar__nav-item-text">Shopping Cart</span></a>
+    <div class="sidebar__nav-dropdown" data-js-sidebar-dropdown>
+      <button class="sidebar__nav-item sidebar__nav-dropdown-trigger" data-js-dropdown-trigger>
+        <span class="sidebar__nav-item-icon icon--xs">
+          <i data-lucide="shopping-cart"></i>
+        </span>
+        <span class="sidebar__nav-item-text">Shopping Cart</span>
+        <span class="sidebar__nav-dropdown-chevron">
+          <i data-lucide="chevron-down"></i>
+        </span>
+      </button>
+      <div class="sidebar__nav-dropdown-content">
+        <a href="#shopping-cart" class="sidebar__nav-item" data-section="shopping-cart">
+          <span class="sidebar__nav-item-text">Standard</span>
+        </a>
+        <a href="#shopping-cart-v2" class="sidebar__nav-item" data-section="shopping-cart-v2">
+          <span class="sidebar__nav-item-text">Premium</span>
+        </a>
+        <a href="#shopping-cart-empty" class="sidebar__nav-item" data-section="shopping-cart-empty">
+          <span class="sidebar__nav-item-text">Panier vide</span>
+        </a>
+      </div>
+    </div>
+    <div class="sidebar__nav-dropdown" data-js-sidebar-dropdown>
+      <button class="sidebar__nav-item sidebar__nav-dropdown-trigger" data-js-dropdown-trigger>
+        <span class="sidebar__nav-item-icon icon--xs">
+          <i data-lucide="user"></i>
+        </span>
+        <span class="sidebar__nav-item-text">Authentification</span>
+        <span class="sidebar__nav-dropdown-chevron">
+          <i data-lucide="chevron-down"></i>
+        </span>
+      </button>
+      <div class="sidebar__nav-dropdown-content">
+        <a href="#auth-login" class="sidebar__nav-item" data-section="auth-login">
+          <span class="sidebar__nav-item-text">Connexion</span>
+        </a>
+        <a href="#auth-register" class="sidebar__nav-item" data-section="auth-register">
+          <span class="sidebar__nav-item-text">Inscription</span>
+        </a>
+        <a href="#auth-forgot" class="sidebar__nav-item" data-section="auth-forgot">
+          <span class="sidebar__nav-item-text">Mot de passe oublié</span>
+        </a>
+      </div>
+    </div>
   </nav>
   <div class="sidebar__footer">
     <button class="sidebar__theme-toggle" id="themeToggle" title="Changer le thème">

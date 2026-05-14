@@ -18,6 +18,7 @@
 @import "../Utils/icon/icon.css";
 @import "../link/link.css";
 @import "../odrazia/shopping-cart/css/shopping-cart.css";
+@import "../odrazia/auth/css/auth.css";
 
 code {
     color: var(--accent-500);

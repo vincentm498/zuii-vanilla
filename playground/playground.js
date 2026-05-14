@@ -89,57 +89,66 @@ async function generateGenericHtml(route) {
     const label = filename === baseFolderName ? 'Défaut' : filename.replace(`${baseFolderName}-`, '').replace(/-/g, ' ');
     const displayLabel = label.charAt(0).toUpperCase() + label.slice(1);
 
-    // Get the rendered HTML
-    const rawHtml = await allHtmlFragments[key]();
-
-    // Check if a demo file exists for the code preview
-    const demoKey = key.replace('.html', '-demo.html');
-    let codeToDisplay = rawHtml;
-
-    if (allHtmlFragments[demoKey]) {
-      codeToDisplay = await allHtmlFragments[demoKey]();
-    }
-
-    // Check if a JS or TS init file exists for this fragment
-    const tsInitKey = key.replace('.html', '-init.ts');
-    const jsInitKey = key.replace('.html', '-init.js');
-    
-    // Fallback: Main package script
-    const mainTsKey = `../packages/${folderName}/js/${baseFolderName}.ts`;
-    const mainJsKey = `../packages/${folderName}/js/${baseFolderName}.js`;
-    
-    let jsContent = '';
-    let jsVisibleClass = 'is-hidden';
-
-    // Priority: 1. Specific TS init, 2. Specific JS init, 3. Main TS file, 4. Main JS file
-    const potentialJsKeys = [tsInitKey, jsInitKey, mainTsKey, mainJsKey];
-    
-    for (const jsKey of potentialJsKeys) {
-      if (allJsFilesRaw[jsKey]) {
-        jsContent = await allJsFilesRaw[jsKey]();
-        jsVisibleClass = '';
-        break;
-      }
-    }
-
-    // Sub-descriptions
-    const htmlDescription = route.descriptions?.html || '';
-    const jsDescription = route.descriptions?.js || '';
-
-    pageHtml += blockTemplate
-      .replaceAll('{{displayLabel}}', displayLabel)
-      .replaceAll('{{content}}', rawHtml)
-      .replaceAll('{{codeVisibleClass}}', codeVisibleClass)
-      .replaceAll('{{jsContent}}', jsContent)
-      .replaceAll('{{jsVisibleClass}}', jsVisibleClass)
-      .replaceAll('{{htmlDescription}}', htmlDescription)
-      .replaceAll('{{htmlDescVisibleClass}}', htmlDescription ? '' : 'is-hidden')
-      .replaceAll('{{jsDescription}}', jsDescription)
-      .replaceAll('{{jsDescVisibleClass}}', (jsContent && jsDescription) ? '' : 'is-hidden')
-      .replaceAll('{{escapedContent}}', escapeHtml(codeToDisplay));
+    pageHtml += await wrapInBlock(key, route, displayLabel);
   }
 
   return pageHtml;
+}
+
+/**
+ * Enveloppe un fragment HTML dans le template de bloc avec son code source (HTML + JS)
+ */
+async function wrapInBlock(key, route, label) {
+  const folderParts = route.package.split('/').slice(1);
+  const folderName = folderParts.join('/');
+  const baseFolderName = folderParts.pop();
+
+  const blockTemplate = await getAsset('templates/template-block.html');
+  const rawHtml = await allHtmlFragments[key]();
+
+  // Config: show code preview?
+  const showCode = route.showCode !== false && route.zuii?.showCode !== false;
+  const codeVisibleClass = showCode ? '' : 'is-hidden';
+
+  // Check if a demo file exists for the code preview
+  const demoKey = key.replace('.html', '-demo.html');
+  let codeToDisplay = rawHtml;
+  if (allHtmlFragments[demoKey]) {
+    codeToDisplay = await allHtmlFragments[demoKey]();
+  }
+
+  // Check if a JS or TS init file exists for this fragment
+  const tsInitKey = key.replace('.html', '-init.ts');
+  const jsInitKey = key.replace('.html', '-init.js');
+  const mainTsKey = `../packages/${folderName}/js/${baseFolderName}.ts`;
+  const mainJsKey = `../packages/${folderName}/js/${baseFolderName}.js`;
+
+  let jsContent = '';
+  let jsVisibleClass = 'is-hidden';
+
+  const potentialJsKeys = [tsInitKey, jsInitKey, mainTsKey, mainJsKey];
+  for (const jsKey of potentialJsKeys) {
+    if (allJsFilesRaw[jsKey]) {
+      jsContent = await allJsFilesRaw[jsKey]();
+      jsVisibleClass = '';
+      break;
+    }
+  }
+
+  const htmlDescription = route.descriptions?.html || '';
+  const jsDescription = route.descriptions?.js || '';
+
+  return blockTemplate
+    .replaceAll('{{displayLabel}}', label)
+    .replaceAll('{{content}}', rawHtml)
+    .replaceAll('{{codeVisibleClass}}', codeVisibleClass)
+    .replaceAll('{{jsContent}}', jsContent)
+    .replaceAll('{{jsVisibleClass}}', jsVisibleClass)
+    .replaceAll('{{htmlDescription}}', htmlDescription)
+    .replaceAll('{{htmlDescVisibleClass}}', htmlDescription ? '' : 'is-hidden')
+    .replaceAll('{{jsDescription}}', jsDescription)
+    .replaceAll('{{jsDescVisibleClass}}', (jsContent && jsDescription) ? '' : 'is-hidden')
+    .replaceAll('{{escapedContent}}', escapeHtml(codeToDisplay));
 }
 
 /**
@@ -193,7 +202,7 @@ async function renderComponent(routeId) {
     folderPath = folderParts.join('/');
     baseName = folderParts.pop();
 
-    pageHtml = route.page ? await getAsset(route.page) : await generateGenericHtml(route);
+    pageHtml = route.page ? await wrapInBlock(route.page, route, 'Aperçu') : await generateGenericHtml(route);
 
     // Récupérer et parser le Markdown si présent
     try {
@@ -363,6 +372,7 @@ async function init() {
   
   initTabs();
   initCollapse();
+  initSidebarDropdowns();
 }
 
 /**
@@ -433,6 +443,21 @@ function initSidebarToggle() {
   if (localStorage.getItem('sidebarCollapsed') === 'true') {
     document.body.classList.add('is-sidebar-collapsed');
   }
+}
+
+/**
+ * Gestion des menus déroulants de la sidebar
+ */
+function initSidebarDropdowns() {
+  document.body.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-js-dropdown-trigger]');
+    if (!trigger) return;
+
+    const dropdown = trigger.closest('[data-js-sidebar-dropdown]');
+    if (dropdown) {
+      dropdown.classList.toggle('is-open');
+    }
+  });
 }
 
 init();

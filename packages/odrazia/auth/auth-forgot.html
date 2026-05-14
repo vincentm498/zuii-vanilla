@@ -1,0 +1,29 @@
+<!-- 
+  ZUII / Odrazia Auth - Forgot Password
+  Composant de récupération de mot de passe.
+-->
+<section class="auth">
+  <div class="auth__container" data-js-auth-container>
+    <div class="auth__header">
+      <h1 class="auth__title">Mot de passe oublié</h1>
+      <p class="auth__footer-text" style="margin-top: var(--spacing-2);">Saisissez votre email pour recevoir un lien de réinitialisation.</p>
+    </div>
+
+    <div class="auth__content">
+      <form id="formForgot" class="auth__form" data-js-auth-form="forgot" action="#" method="POST">
+        <div class="auth__form-group">
+          <label for="email" class="auth__label">Email</label>
+          <input type="email" id="email" name="email" placeholder="exemple@gmail.com" required class="auth__input">
+        </div>
+
+        <div class="auth__submit">
+          <button type="submit" class="btn btn--primary btn--block">Envoyer le lien</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="auth__footer">
+      <a href="auth-login.html" class="auth__link" style="font-size: var(--font-size-sm); text-decoration: underline;">Retour à la connexion</a>
+    </div>
+  </div>
+</section>

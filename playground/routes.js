@@ -97,5 +97,32 @@ export const routes = {
       html: 'Utilisez le modificateur <code>.cart--v2</code> sur le conteneur principal. La structure se divise en <code>.cart__main</code> pour les articles et <code>.cart__sidebar</code> pour le résumé.',
       js: 'Même logique d\'initialisation que la V1. Le composant détecte la structure V2 et adapte le comportement de la sidebar collante.'
     }
+  },
+  'auth-login': {
+    title: 'Auth - Login',
+    package: '@zuii/odrazia/auth',
+    page: '../packages/odrazia/auth/auth-login.html',
+    descriptions: {
+      general: 'Composant de connexion standard avec gestion des erreurs et lien de récupération.',
+      html: 'Utilisez la structure <code>.auth</code> avec un conteneur <code>.auth__container</code>. Le formulaire doit porter l\'attribut <code>data-js-auth-form="login"</code>.'
+    }
+  },
+  'auth-register': {
+    title: 'Auth - Register',
+    package: '@zuii/odrazia/auth',
+    page: '../packages/odrazia/auth/auth-register.html',
+    descriptions: {
+      general: 'Formulaire d\'inscription complet incluant la confirmation de mot de passe et l\'acceptation des CGU.',
+      html: 'Le formulaire utilise l\'attribut <code>data-js-auth-form="register"</code>.'
+    }
+  },
+  'auth-forgot': {
+    title: 'Auth - Forgot Password',
+    package: '@zuii/odrazia/auth',
+    page: '../packages/odrazia/auth/auth-forgot.html',
+    descriptions: {
+      general: 'Interface simple pour la demande de réinitialisation de mot de passe par email.',
+      html: 'Le formulaire utilise l\'attribut <code>data-js-auth-form="forgot"</code>.'
+    }
   }
 };

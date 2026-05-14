@@ -1,0 +1,61 @@
+/**
+ * --- Auth Form ---
+ * Styles pour les formulaires de connexion, inscription et oubli de mot de passe.
+ */
+
+.auth__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.auth__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.auth__label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--neutral-700);
+}
+
+.auth__input {
+  padding: var(--spacing-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--neutral-300);
+  font-size: var(--font-size-base);
+  transition: all 0.2s;
+  outline: none;
+}
+
+.auth__input:focus {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 2px rgba(93, 95, 239, 0.1);
+}
+
+.auth__input::placeholder {
+  color: var(--neutral-400);
+}
+
+.auth__form-helper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: calc(var(--spacing-1) * -1);
+}
+
+.auth__link {
+  font-size: var(--font-size-xs);
+  color: var(--primary-500);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+}
+
+.auth__link:hover {
+  text-decoration: underline;
+}
+
+.auth__submit {
+  margin-top: var(--spacing-4);
+}

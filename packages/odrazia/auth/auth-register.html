@@ -1,0 +1,58 @@
+<!-- 
+  ZUII / Odrazia Auth - Register
+  Composant d'inscription standard.
+-->
+<section class="auth">
+  <div class="auth__container" data-js-auth-container>
+    <div class="auth__header">
+      <h1 class="auth__title">Créer un compte</h1>
+    </div>
+
+    <div class="auth__content">
+      <form id="formRegister" class="auth__form" data-js-auth-form="register" action="#" method="POST">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4);">
+          <div class="auth__form-group">
+            <label for="lastname" class="auth__label">Nom</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Nom" required class="auth__input">
+          </div>
+          <div class="auth__form-group">
+            <label for="firstname" class="auth__label">Prénom</label>
+            <input type="text" id="firstname" name="firstname" placeholder="Prénom" required class="auth__input">
+          </div>
+        </div>
+
+        <div class="auth__form-group">
+          <label for="email" class="auth__label">Email</label>
+          <input type="email" id="email" name="email" placeholder="exemple@gmail.com" required class="auth__input">
+        </div>
+
+        <div class="auth__form-group">
+          <label for="password" class="auth__label">Mot de passe</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" required class="auth__input">
+        </div>
+
+        <div class="auth__form-group">
+          <label for="confirmPassword" class="auth__label">Confirmer le mot de passe</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" required class="auth__input">
+        </div>
+
+        <div class="auth__form-group" style="flex-direction: row; align-items: flex-start; gap: var(--spacing-3); margin-top: var(--spacing-2);">
+          <input type="checkbox" id="checkboxConfirm" name="checkboxConfirm" required style="margin-top: 4px;">
+          <label for="checkboxConfirm" class="auth__label" style="font-weight: 400; font-size: var(--font-size-xs); line-height: 1.4;">
+            J'accepte que les informations saisies soient utilisées pour me recontacter.
+            <a href="#" class="auth__link">Politique de confidentialité</a>
+          </label>
+        </div>
+
+        <div class="auth__submit">
+          <button type="submit" class="btn btn--primary btn--block">S'inscrire</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="auth__footer">
+      <p class="auth__footer-text">Déjà un compte ?</p>
+      <a href="auth-login.html" class="auth__link" style="font-size: var(--font-size-sm); text-decoration: underline;">Se connecter</a>
+    </div>
+  </div>
+</section>
