@@ -4,15 +4,15 @@
  */
 
 .cart__promo {
-  margin-bottom: 32px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: var(--spacing-8);
+  padding-bottom: var(--spacing-6);
+  border-bottom: 1px solid var(--neutral-200);
 }
 
 .cart__promo-form .input-group {
   display: flex;
   flex-wrap: nowrap;
-  gap: 4px; /* Plus serré pour gagner de la place */
+  gap: var(--spacing-1); /* Plus serré pour gagner de la place */
   width: 100%;
   max-width: 100%; /* Empêche le débordement */
 }
@@ -20,47 +20,47 @@
 .cart__promo-input {
   flex: 1;
   min-width: 0;
-  padding: 10px 12px; /* Un peu moins de padding */
-  border-radius: 8px; /* Rayon un peu plus petit pour le look compact */
-  border: 1px solid #e2e8f0;
-  font-size: 13px; /* Taille de police légèrement réduite */
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--neutral-200);
+  font-size: var(--font-size-xs);
   outline: none;
   transition: all 0.2s;
 }
 
 .cart__promo-input:focus {
-  border-color: #6366f1;
-  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 2px rgba(93, 95, 239, 0.1);
 }
 
 .cart__promo-form .btn {
   flex-shrink: 0;
-  padding: 8px 12px; /* Bouton plus compact */
-  font-size: 13px;
-  border-radius: 8px;
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: var(--font-size-xs);
+  border-radius: var(--radius-lg);
 }
 
 .cart__promo-list {
   list-style: none;
   padding: 0;
-  margin: 12px 0 0;
+  margin: var(--spacing-3) 0 0;
 }
 
 /* Badge de promotion appliquée */
 .cart__promo-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: #f0f9ff;
-  border: 1px solid #bae6fd;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 13px;
-  color: #0369a1;
+  gap: var(--spacing-2);
+  background: var(--info-50);
+  border: 1px solid var(--info-200);
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-xs);
+  color: var(--info-700);
 }
 
 .cart__promo-code {
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
 }
 
 .cart__promo-amount {
@@ -70,9 +70,9 @@
 .cart__promo-remove {
   background: transparent;
   border: none;
-  color: #ef4444;
+  color: var(--danger-500);
   cursor: pointer;
-  font-size: 16px;
+  font-size: var(--font-size-base);
   display: flex;
   align-items: center;
   justify-content: center;

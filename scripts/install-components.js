@@ -5,7 +5,7 @@ const path = require('path');
 
 /**
  * ZUI Component Installer
- * Copies .js and .css files from the library to the local project.
+ * Copies .js, .ts and .css files from the library to the local project.
  */
 
 // Dossier de destination par défaut
@@ -48,7 +48,7 @@ function copyFiles(src, dest) {
             copyFiles(srcPath, path.join(dest, item));
         } else {
             const ext = path.extname(item);
-            if (ext === '.js' || ext === '.css') {
+            if (ext === '.js' || ext === '.css' || ext === '.ts') {
                 if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
                 const destPath = path.join(dest, item);
 

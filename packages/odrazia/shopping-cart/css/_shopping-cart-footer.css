@@ -4,21 +4,21 @@
  */
 
 .cart__footer {
-  padding: 32px 24px;
-  background: #f8fafc;
-  border-top: 1px solid #e2e8f0;
-  border-radius: 0 0 16px 16px;
+  padding: var(--spacing-8) var(--spacing-6);
+  background: var(--neutral-50);
+  border-top: 1px solid var(--neutral-200);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 40px;
+  gap: var(--spacing-10);
 }
 
 /* Bloc des boutons d'actions (gauche) */
 .cart__actions {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--spacing-3);
   width: 100%;
   max-width: 300px;
 }
@@ -30,39 +30,39 @@
 }
 
 .cart__summary-title {
-  margin: 0 0 20px;
-  font-size: 20px;
-  font-weight: 700;
-  color: #0f172a;
+  margin: 0 0 var(--spacing-5);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--neutral-900);
 }
 
 /* Tableau des totaux */
 .cart__summary-table {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 24px;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-6);
 }
 
 .cart__summary-row {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
-  color: #64748b;
+  font-size: var(--font-size-sm);
+  color: var(--neutral-500);
 }
 
 /* Mise en évidence de la remise */
 .cart__summary-row--discount {
-  color: #dc2626;
-  font-weight: 500;
+  color: var(--danger-600);
+  font-weight: var(--font-weight-medium);
 }
 
 /* Mise en évidence du TTC final */
 .cart__summary-row--total {
-  margin-top: 8px;
-  padding-top: 16px;
-  border-top: 1px solid #e2e8f0;
-  font-size: 18px;
-  font-weight: 700;
-  color: #0f172a;
+  margin-top: var(--spacing-2);
+  padding-top: var(--spacing-4);
+  border-top: 1px solid var(--neutral-200);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--neutral-900);
 }

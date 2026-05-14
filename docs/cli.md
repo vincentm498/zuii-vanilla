@@ -18,7 +18,7 @@ Permet de spécifier un dossier de destination personnalisé au lieu du dossier 
 Lorsque vous lancez `npx zuii-install`, l'outil effectue les actions suivantes :
 
 1.  **Détection du projet** : Il s'exécute à partir de la racine de votre projet.
-2.  **Filtrage intelligent** : Il ne copie que les fichiers avec les extensions `.js` et `.css`.
+2.  **Filtrage intelligent** : Il ne copie que les fichiers avec les extensions `.js`, `.ts` et `.css`.
 3.  **Organisation modulaire** : Chaque composant est placé dans son propre sous-dossier.
 
 ## Avantages
