@@ -4,6 +4,8 @@
  * Idéal pour le playground ou intégration complète.
  */
 
+@import "../Utils/group/css/group.css";
+
 @import "../avatar/avatar.css";
 @import "../button/button.css";
 @import "../badge/badge.css";
@@ -17,9 +19,14 @@
 @import "../Utils/spacing/spacing.css";
 @import "../Utils/icon/icon.css";
 @import "../link/link.css";
+@import "../breadcrumbs/css/breadcrumbs.css";
 @import "../odrazia/shopping-cart/css/shopping-cart.css";
 @import "../odrazia/auth/css/auth.css";
 @import "../odrazia/account/css/account.css";
+@import "../odrazia/checkout/css/checkout.css";
+@import "../odrazia/coming-soon/css/coming-soon.css";
+@import "../odrazia/errors/css/errors.css";
+@import "../odrazia/products/css/products.css";
 
 code {
     color: var(--accent-500);

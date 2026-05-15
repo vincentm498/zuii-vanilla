@@ -1,0 +1,77 @@
+/* =============================================
+   @zuii/breadcrumbs — breadcrumbs.css
+   ============================================= */
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-family-sans, Inter, system-ui, sans-serif);
+  font-size: var(--font-size-sm, 0.875rem);
+  line-height: 1.5;
+}
+
+.breadcrumbs__list {
+  display: contents;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumbs__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2, 0.5rem);
+}
+
+.breadcrumbs__separator {
+  display: inline-flex;
+  align-items: center;
+  color: var(--neutral-400, #94a3b8);
+  font-size: var(--font-size-xs, 0.75rem);
+  user-select: none;
+}
+
+.breadcrumbs__link {
+  color: var(--accent-500, #06b6d4);
+  text-decoration: none;
+  transition: color 0.18s;
+  white-space: nowrap;
+}
+
+.breadcrumbs__link:hover {
+  color: var(--accent-600, #0891b2);
+  text-decoration: underline;
+}
+
+.breadcrumbs__link:focus-visible {
+  outline: 2px solid var(--accent-500, #06b6d4);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* --- Current page (non-clickable) --- */
+.breadcrumbs__current {
+  color: var(--neutral-600, #475569);
+  font-weight: var(--font-weight-medium, 500);
+  white-space: nowrap;
+}
+
+/* --- Sizes --- */
+.breadcrumbs--sm {
+  font-size: var(--font-size-xs, 0.75rem);
+}
+
+.breadcrumbs--lg {
+  font-size: var(--font-size-base, 1rem);
+}
+
+/* --- Collapse on mobile --- */
+@media (max-width: 640px) {
+  .breadcrumbs--collapse .breadcrumbs__item:not(:first-child):not(:last-child) {
+    display: none;
+  }
+
+  .breadcrumbs--collapse .breadcrumbs__separator:nth-child(2) {
+    display: none;
+  }
+}

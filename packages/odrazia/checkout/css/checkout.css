@@ -1,0 +1,52 @@
+@import "./_checkout-layout.css";
+@import "./_checkout-progress.css";
+@import "./_checkout-order-summary.css";
+@import "./_checkout-address.css";
+@import "./_checkout-shipping.css";
+@import "./_checkout-payment.css";
+@import "./_checkout-validation.css";
+
+.checkout {
+  container-type: inline-size;
+  width: 100%;
+}
+
+.checkout__layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: var(--spacing-6, 1.5rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-6, 1.5rem);
+}
+
+.checkout__panel {
+  display: none;
+}
+
+.checkout__panel--active {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6, 1.5rem);
+}
+
+.checkout__panel-title {
+  font-size: var(--font-size-xl, 1.25rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--primary-500, #5d5fef);
+  margin: 0;
+}
+
+.checkout__panel-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-3, 0.75rem);
+  padding-top: var(--spacing-4, 1rem);
+  border-top: 1px solid var(--neutral-200, #e2e8f0);
+}
+
+@container (max-width: 800px) {
+  .checkout__layout {
+    grid-template-columns: 1fr;
+  }
+}

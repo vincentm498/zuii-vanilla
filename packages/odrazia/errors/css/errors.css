@@ -1,0 +1,7 @@
+/**
+ * Error Pages Component
+ * @section odrazia/errors
+ */
+
+@import "./_error-page-base.css";
+@import "./_error-page-maintenance.css";

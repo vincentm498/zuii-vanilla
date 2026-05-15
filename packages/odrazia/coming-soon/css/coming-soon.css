@@ -1,0 +1,8 @@
+/**
+ * Coming Soon Component
+ * @section odrazia/coming-soon
+ */
+
+@import "./_coming-soon-base.css";
+@import "./_coming-soon-form.css";
+@import "./_coming-soon-countdown.css";

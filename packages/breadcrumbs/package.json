@@ -1,0 +1,10 @@
+{
+  "name": "@zuii/breadcrumbs",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "style": "css/breadcrumbs.css",
+  "files": ["index.js", "css/"],
+  "keywords": ["ui", "component", "breadcrumbs", "navigation"],
+  "license": "MIT"
+}

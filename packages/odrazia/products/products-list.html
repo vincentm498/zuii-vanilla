@@ -1,0 +1,192 @@
+<div class="products-list-wrapper">
+  <div class="products-list">
+    <div class="products-list__filters">
+      <form class="products-list__filter-form" action="#products-list" method="GET">
+        <h3 class="products-list__filter-title">Filtres</h3>
+
+        <fieldset class="products-list__filter-group">
+          <legend class="products-list__filter-legend">Recherche</legend>
+          <div class="products-list__search">
+            <input type="search" name="search" class="products-list__input" placeholder="Rechercher ..." value="">
+          </div>
+          <div class="products-list__price-range">
+            <input type="number" name="priceMin" class="products-list__input products-list__input--small"
+              placeholder="Prix min" value="">
+            <input type="number" name="priceMax" class="products-list__input products-list__input--small"
+              placeholder="Prix max" value="">
+          </div>
+          <label class="products-list__checkbox">
+            <input type="checkbox" name="inStock" value="true">
+            <span class="products-list__checkbox-label">En stock</span>
+          </label>
+        </fieldset>
+
+        <fieldset class="products-list__filter-group">
+          <legend class="products-list__filter-legend">Categories</legend>
+          <ul class="products-list__filter-list">
+            <li>
+              <label class="products-list__checkbox">
+                <input type="checkbox" name="categories[]" value="electronics">
+                <span class="products-list__checkbox-label">Electronique</span>
+              </label>
+            </li>
+            <li>
+              <label class="products-list__checkbox">
+                <input type="checkbox" name="categories[]" value="clothing">
+                <span class="products-list__checkbox-label">Vetements</span>
+              </label>
+            </li>
+            <li>
+              <label class="products-list__checkbox">
+                <input type="checkbox" name="categories[]" value="home">
+                <span class="products-list__checkbox-label">Maison</span>
+              </label>
+            </li>
+          </ul>
+        </fieldset>
+
+        <fieldset class="products-list__filter-group">
+          <legend class="products-list__filter-legend">Tags</legend>
+          <ul class="products-list__filter-list">
+            <li>
+              <label class="products-list__checkbox">
+                <input type="checkbox" name="tags[]" value="new">
+                <span class="products-list__checkbox-label">Nouveau</span>
+              </label>
+            </li>
+            <li>
+              <label class="products-list__checkbox">
+                <input type="checkbox" name="tags[]" value="sale">
+                <span class="products-list__checkbox-label">Promo</span>
+              </label>
+            </li>
+          </ul>
+        </fieldset>
+
+        <button type="submit" class="btn btn--primary products-list__submit">
+          Rechercher
+        </button>
+      </form>
+    </div>
+
+    <div class="products-list__main">
+      <ul class="products-list__grid">
+        <li class="products-list__item">
+          <article class="product-card">
+            <div class="product-card__image">
+              <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80" alt="Casque audio">
+              <span class="product-card__badge product-card__badge--new">Nouveau</span>
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Casque Sans Fil Premium</h3>
+              <p class="product-card__category">Electronique</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">129,00 €</span>
+                <button class="btn btn--primary btn--sm">Ajouter</button>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li class="products-list__item">
+          <article class="product-card">
+            <div class="product-card__image">
+              <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80" alt="Montre connectee">
+              <span class="product-card__badge product-card__badge--sale">-20%</span>
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Montre Connectee Sport</h3>
+              <p class="product-card__category">Electronique</p>
+              <div class="product-card__footer">
+                <div class="product-card__price-group">
+                  <span class="product-card__price product-card__price--old">249,00 €</span>
+                  <span class="product-card__price">199,00 €</span>
+                </div>
+                <button class="btn btn--primary btn--sm">Ajouter</button>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li class="products-list__item">
+          <article class="product-card">
+            <div class="product-card__image">
+              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="Chaussures">
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Chaussures de Sport Pro</h3>
+              <p class="product-card__category">Vetements</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">89,90 €</span>
+                <button class="btn btn--primary btn--sm">Ajouter</button>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li class="products-list__item">
+          <article class="product-card">
+            <div class="product-card__image">
+              <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&q=80" alt="Sac a dos">
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Sac a Dos Urbain</h3>
+              <p class="product-card__category">Accessoires</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">59,90 €</span>
+                <button class="btn btn--primary btn--sm">Ajouter</button>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li class="products-list__item">
+          <article class="product-card">
+            <div class="product-card__image">
+              <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400&q=80" alt="Appareil photo">
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">Appareil Photo Compact</h3>
+              <p class="product-card__category">Electronique</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">349,00 €</span>
+                <button class="btn btn--primary btn--sm">Ajouter</button>
+              </div>
+            </div>
+          </article>
+        </li>
+        <li class="products-list__item">
+          <article class="product-card">
+            <div class="product-card__image">
+              <img src="https://images.unsplash.com/photo-1560343090-f0409e92791a?w=400&q=80" alt="T-shirt">
+            </div>
+            <div class="product-card__content">
+              <h3 class="product-card__title">T-Shirt Coton Bio</h3>
+              <p class="product-card__category">Vetements</p>
+              <div class="product-card__footer">
+                <span class="product-card__price">24,90 €</span>
+                <button class="btn btn--primary btn--sm">Ajouter</button>
+              </div>
+            </div>
+          </article>
+        </li>
+      </ul>
+
+      <nav class="products-list__pagination" aria-label="Pagination produits">
+        <ul class="products-list__pagination-list">
+          <li class="products-list__pagination-item products-list__pagination-item--disabled">
+            <span class="products-list__pagination-link">Precedent</span>
+          </li>
+          <li class="products-list__pagination-item products-list__pagination-item--active">
+            <span class="products-list__pagination-link">1</span>
+          </li>
+          <li class="products-list__pagination-item">
+            <a href="#" class="products-list__pagination-link">2</a>
+          </li>
+          <li class="products-list__pagination-item">
+            <a href="#" class="products-list__pagination-link">3</a>
+          </li>
+          <li class="products-list__pagination-item">
+            <a href="#" class="products-list__pagination-link">Suivant</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

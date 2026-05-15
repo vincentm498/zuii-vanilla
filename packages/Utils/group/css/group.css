@@ -1,0 +1,126 @@
+/* =============================================
+   @zuii/group — group.css
+   ============================================= */
+
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3, 0.75rem);
+  container-type: inline-size;
+  width: 100%;
+}
+
+.group>*:has(.form__input) {
+  flex: 1;
+}
+
+/* --- Direction --- */
+.group--vertical {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.group--horizontal {
+  flex-direction: row;
+  align-items: center;
+}
+
+.group--no-wrap {
+  flex-wrap: nowrap;
+}
+
+/* --- Gap sizes --- */
+.group--gap-none {
+  gap: 0;
+}
+
+.group--gap-xs {
+  gap: var(--spacing-1, 0.25rem);
+}
+
+.group--gap-sm {
+  gap: var(--spacing-2, 0.5rem);
+}
+
+.group--gap-md {
+  gap: var(--spacing-3, 0.75rem);
+}
+
+.group--gap-lg {
+  gap: var(--spacing-4, 1rem);
+}
+
+.group--gap-xl {
+  gap: var(--spacing-6, 1.5rem);
+}
+
+/* --- Alignment: justify-content --- */
+.group--start {
+  justify-content: flex-start;
+}
+
+.group--end {
+  justify-content: flex-end;
+}
+
+.group--between {
+  justify-content: space-between;
+}
+
+.group--center {
+  justify-content: center;
+}
+
+/* --- Alignment: combined (justify-content + align-items) --- */
+.group--top-left {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.group--top-center {
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.group--top-right {
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.group--center-left {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.group--center-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.group--center-right {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.group--bottom-left {
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.group--bottom-center {
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.group--bottom-right {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+/* --- Responsive: vertical on small screens --- */
+@container (max-width: 640px) {
+  .group--responsive-vertical {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

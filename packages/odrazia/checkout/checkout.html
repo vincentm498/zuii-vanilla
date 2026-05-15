@@ -1,0 +1,238 @@
+<div class="checkout" data-js-checkout>
+  <div class="checkout__layout">
+    <aside class="checkout__summary" data-js-checkout-summary>
+      <div class="checkout__summary-card">
+        <h2 class="checkout__summary-heading">Commande</h2>
+        <button type="button" class="checkout__summary-toggle" data-js-cart-toggle>
+          Voir mon panier
+        </button>
+        <div class="checkout__cart" data-js-cart-collapse>
+          <div class="checkout__cart-scroll">
+            <ul class="checkout__cart-list">
+              <li class="checkout__cart-item">
+                <article class="cart-mini">
+                  <div class="cart-mini__image">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=80&q=80" alt="Casque">
+                  </div>
+                  <div class="cart-mini__content">
+                    <h3 class="cart-mini__name">Casque Sans Fil Premium</h3>
+                    <p class="cart-mini__meta">Couleur : Noir Sidéral</p>
+                    <span class="cart-mini__qty">x1</span>
+                  </div>
+                  <span class="cart-mini__price">129,00 €</span>
+                </article>
+              </li>
+              <li class="checkout__cart-item">
+                <article class="cart-mini">
+                  <div class="cart-mini__image">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=80&q=80" alt="Montre">
+                  </div>
+                  <div class="cart-mini__content">
+                    <h3 class="cart-mini__name">Montre Connectée Sport</h3>
+                    <p class="cart-mini__meta">Taille : 44mm</p>
+                    <span class="cart-mini__qty">x1</span>
+                  </div>
+                  <span class="cart-mini__price">199,00 €</span>
+                </article>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <table class="checkout__summary-table">
+          <tbody>
+            <tr>
+              <td>Sous-total</td>
+              <td data-js-summary-subtotal>328,00 €</td>
+            </tr>
+            <tr>
+              <td>Promotion</td>
+              <td data-js-summary-discount>-10,00 €</td>
+            </tr>
+            <tr>
+              <td>Livraison</td>
+              <td data-js-summary-shipping>Gratuit</td>
+            </tr>
+            <tr class="checkout__summary-total">
+              <td>Total (TTC)</td>
+              <td data-js-summary-total>318,00 €</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </aside>
+
+    <div class="checkout__steps" data-js-checkout-steps>
+      <nav class="checkout__progress" data-js-checkout-progress>
+        <a href="#" class="checkout__step checkout__step--active" data-js-step-link="address">
+          <span class="checkout__step-number">1</span>
+          <span class="checkout__step-label">Adresse</span>
+        </a>
+        <span class="checkout__step-separator"></span>
+        <a href="#" class="checkout__step" data-js-step-link="shipping">
+          <span class="checkout__step-number">2</span>
+          <span class="checkout__step-label">Livraison</span>
+        </a>
+        <span class="checkout__step-separator"></span>
+        <a href="#" class="checkout__step" data-js-step-link="payment">
+          <span class="checkout__step-number">3</span>
+          <span class="checkout__step-label">Paiement</span>
+        </a>
+      </nav>
+
+      <section class="checkout__panel checkout__panel--active" data-js-checkout-panel="address">
+        <h1 class="checkout__panel-title">Adresse de livraison</h1>
+        <form class="checkout-address" data-js-address-form>
+          <div class="checkout-address__group">
+            <label class="checkout-address__label" for="addr-invoice">Adresse de facturation</label>
+            <select id="addr-invoice" name="idAddressInvoice" class="checkout-address__select" data-js-address-invoice required>
+              <option value="">-- Choisissez --</option>
+              <option value="1" selected>Domicile (12 Rue de la Paix, 75001 Paris)</option>
+              <option value="2">Bureau (45 Avenue des Champs-Élysées, 75008 Paris)</option>
+            </select>
+            <div class="checkout-address__actions">
+              <button type="button" class="checkout-address__action" data-js-address-edit-invoice>Modifier mon adresse</button>
+              <button type="button" class="checkout-address__action checkout-address__action--primary" data-js-address-add>Ajouter une adresse</button>
+            </div>
+          </div>
+
+          <label class="checkout-address__checkbox">
+            <input type="checkbox" name="useSameAddress" value="true" checked data-js-same-address>
+            <span>Utiliser l'adresse de facturation comme adresse de livraison</span>
+          </label>
+
+          <div class="checkout-address__group" data-js-delivery-group style="display: none;">
+            <label class="checkout-address__label" for="addr-delivery">Adresse de livraison</label>
+            <select id="addr-delivery" name="idAddressDelivery" class="checkout-address__select" data-js-address-delivery>
+              <option value="">-- Choisissez --</option>
+              <option value="1">Domicile (12 Rue de la Paix, 75001 Paris)</option>
+              <option value="2">Bureau (45 Avenue des Champs-Élysées, 75008 Paris)</option>
+            </select>
+            <div class="checkout-address__actions">
+              <button type="button" class="checkout-address__action" data-js-address-edit-delivery>Modifier mon adresse</button>
+            </div>
+          </div>
+
+          <div class="checkout__panel-actions">
+            <a href="#" class="btn btn--secondary" data-js-back-cart>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              Retour
+            </a>
+            <button type="submit" class="btn btn--primary">Continuer</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="checkout__panel" data-js-checkout-panel="shipping">
+        <h1 class="checkout__panel-title">Mode de livraison</h1>
+        <form class="checkout-shipping" data-js-shipping-form>
+          <div class="checkout-shipping__methods">
+            <label class="checkout-shipping__item">
+              <div class="checkout-shipping__content">
+                <h3 class="checkout-shipping__name">Colissimo Domicile</h3>
+                <p class="checkout-shipping__price">5,90 € TTC</p>
+              </div>
+              <input type="radio" name="idShippingMethod" value="1" class="checkout-shipping__radio" checked data-js-shipping-method data-code="colissimo">
+            </label>
+            <label class="checkout-shipping__item">
+              <div class="checkout-shipping__content">
+                <h3 class="checkout-shipping__name">Point Relais</h3>
+                <p class="checkout-shipping__price">Gratuit</p>
+              </div>
+              <input type="radio" name="idShippingMethod" value="2" class="checkout-shipping__radio" data-js-shipping-method data-code="mondial-relay">
+            </label>
+            <div class="checkout-shipping__relay" data-js-relay-field style="display: none;">
+              <label class="checkout-shipping__relay-label" for="relay-phone">Téléphone</label>
+              <input type="tel" id="relay-phone" name="relayPhone" class="checkout-shipping__input" placeholder="0601020304" data-js-relay-phone>
+              <div class="checkout-shipping__relay-map" data-js-relay-map>
+                <p class="checkout-shipping__relay-hint">Sélectionnez votre point relais sur la carte</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="checkout__panel-actions">
+            <a href="#" class="btn btn--secondary" data-js-back-address>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              Retour
+            </a>
+            <button type="submit" class="btn btn--primary">Continuer</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="checkout__panel" data-js-checkout-panel="payment">
+        <h1 class="checkout__panel-title">Mode de paiement</h1>
+        <form class="checkout-payment" data-js-payment-form>
+          <div class="checkout-payment__methods">
+            <label class="checkout-payment__item">
+              <div class="checkout-payment__content">
+                <h3 class="checkout-payment__name">Carte bancaire</h3>
+              </div>
+              <input type="radio" name="paymentMethod" value="credit_card" class="checkout-payment__radio" checked data-js-payment-method>
+              <p class="checkout-payment__hint">Vous allez être redirigé vers la plateforme de paiement sécurisé</p>
+            </label>
+            <label class="checkout-payment__item">
+              <div class="checkout-payment__content">
+                <h3 class="checkout-payment__name">PayPal</h3>
+              </div>
+              <input type="radio" name="paymentMethod" value="paypal" class="checkout-payment__radio" data-js-payment-method>
+            </label>
+            <label class="checkout-payment__item">
+              <div class="checkout-payment__content">
+                <h3 class="checkout-payment__name">Virement bancaire</h3>
+              </div>
+              <input type="radio" name="paymentMethod" value="transfer" class="checkout-payment__radio" data-js-payment-method>
+            </label>
+          </div>
+
+          <div class="checkout__panel-actions">
+            <a href="#" class="btn btn--secondary" data-js-back-shipping>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              Retour
+            </a>
+            <button type="submit" class="btn btn--primary">Commander</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="checkout__panel" data-js-checkout-panel="validation">
+        <div class="checkout-validation">
+          <div class="checkout-validation__success" data-js-validation-success>
+            <div class="checkout-validation__icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--success-500, #14b8a6)" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h2 class="checkout-validation__title">Merci pour votre commande</h2>
+            <p class="checkout-validation__text">Vous recevrez un email de confirmation dans quelques instants.</p>
+            <div class="checkout-validation__actions">
+              <a href="#" class="btn btn--secondary">Boutique</a>
+              <a href="#" class="btn btn--primary">Voir mes commandes</a>
+            </div>
+          </div>
+          <div class="checkout-validation__error" data-js-validation-error style="display: none;">
+            <div class="checkout-validation__icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--danger-500, #f43f5e)" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            </div>
+            <h2 class="checkout-validation__title">Erreur de paiement</h2>
+            <p class="checkout-validation__text">Une erreur est survenue lors de la validation de votre commande.</p>
+            <a href="#" class="btn btn--secondary">Retour au paiement</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <template data-js-template-cart-item>
+    <li class="checkout__cart-item" data-js-cart-item>
+      <article class="cart-mini">
+        <div class="cart-mini__image">
+          <img src="" alt="" data-js-cart-img>
+        </div>
+        <div class="cart-mini__content">
+          <h3 class="cart-mini__name" data-js-cart-name></h3>
+          <p class="cart-mini__meta" data-js-cart-meta></p>
+          <span class="cart-mini__qty" data-js-cart-qty></span>
+        </div>
+        <span class="cart-mini__price" data-js-cart-price></span>
+      </article>
+    </li>
+  </template>
+</div>

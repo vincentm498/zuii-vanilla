@@ -1,0 +1,58 @@
+<div class="coming-soon" data-js-coming-soon>
+  <div class="coming-soon__container">
+    <div class="coming-soon__content">
+      <span class="coming-soon__badge">Bientot disponible</span>
+      <h1 class="coming-soon__title">Nous preparons quelque chose de special</h1>
+      <p class="coming-soon__description">
+        Notre nouvelle fonctionnalité arrive bientot. Inscrivez-vous pour être notifié dès le lancement.
+      </p>
+
+      <form class="coming-soon__form" data-js-coming-soon-form>
+        <div class="coming-soon__input-group">
+          <input
+            type="email"
+            name="email"
+            class="coming-soon__input"
+            placeholder="Votre adresse email"
+            required
+            data-js-coming-soon-email
+          >
+          <button type="submit" class="coming-soon__submit btn btn--primary">
+            Me prévenir
+          </button>
+        </div>
+        <p class="coming-soon__feedback" data-js-coming-soon-feedback></p>
+      </form>
+
+      <div class="coming-soon__countdown" data-js-coming-soon-countdown>
+        <div class="coming-soon__countdown-item">
+          <span class="coming-soon__countdown-value" data-js-countdown-days>00</span>
+          <span class="coming-soon__countdown-label">Jours</span>
+        </div>
+        <div class="coming-soon__countdown-item">
+          <span class="coming-soon__countdown-value" data-js-countdown-hours>00</span>
+          <span class="coming-soon__countdown-label">Heures</span>
+        </div>
+        <div class="coming-soon__countdown-item">
+          <span class="coming-soon__countdown-value" data-js-countdown-minutes>00</span>
+          <span class="coming-soon__countdown-label">Minutes</span>
+        </div>
+        <div class="coming-soon__countdown-item">
+          <span class="coming-soon__countdown-value" data-js-countdown-seconds>00</span>
+          <span class="coming-soon__countdown-label">Secondes</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="coming-soon__visual">
+      <div class="coming-soon__illustration" data-js-coming-soon-illustration>
+        <svg width="240" height="240" viewBox="0 0 240 240" fill="none" aria-hidden="true">
+          <circle cx="120" cy="120" r="100" stroke="var(--primary-100, #ebf0fe)" stroke-width="2" stroke-dasharray="8 4"/>
+          <circle cx="120" cy="120" r="70" stroke="var(--primary-200, #ced9fd)" stroke-width="2" stroke-dasharray="6 3"/>
+          <circle cx="120" cy="120" r="40" fill="var(--primary-50, #f5f7ff)"/>
+          <path d="M120 70 L120 120 L160 140" stroke="var(--primary-500, #5d5fef)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

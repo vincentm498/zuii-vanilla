@@ -1,0 +1,17 @@
+.checkout__steps {
+  order: 1;
+}
+
+.checkout__summary {
+  order: 2;
+}
+
+@container (max-width: 800px) {
+  .checkout__steps {
+    order: 1;
+  }
+
+  .checkout__summary {
+    order: 2;
+  }
+}

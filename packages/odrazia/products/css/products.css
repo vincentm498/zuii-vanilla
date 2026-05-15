@@ -1,0 +1,7 @@
+/**
+ * Products List Component
+ * @section odrazia/products
+ */
+
+@import "./_products-list-base.css";
+@import "./_products-list-card.css";

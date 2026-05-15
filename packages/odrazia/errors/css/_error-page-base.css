@@ -1,0 +1,81 @@
+/* ========================================
+   Error Pages - Base Styles
+   ======================================== */
+
+.error-page {
+  container-type: inline-size;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-8, 1rem);
+  background: var(--neutral-50, #f8fafc);
+}
+
+.error-page__container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16, 4rem);
+  max-width: 900px;
+  width: 100%;
+}
+
+.error-page__visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.error-page__illustration {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.error-page__content {
+  flex: 1;
+  max-width: 400px;
+}
+
+.error-page__badge {
+  display: inline-block;
+  padding: var(--spacing-1, 0.25rem) var(--spacing-3, 0.75rem);
+  background: var(--warning-100, #fef3c7);
+  color: var(--warning-700, #b45309);
+  font-size: var(--font-size-xs, 0.75rem);
+  font-weight: var(--font-weight-semibold, 600);
+  border-radius: var(--radius-full, 9999px);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--spacing-4, 1rem);
+}
+
+.error-page__title {
+  font-size: var(--font-size-2xl, 1.5rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--neutral-900, #0f172a);
+  margin: 0 0 var(--spacing-4, 1rem);
+}
+
+.error-page__description {
+  font-size: var(--font-size-base, 1rem);
+  color: var(--neutral-600, #475569);
+  line-height: 1.6;
+  margin: 0 0 var(--spacing-8, 2rem);
+}
+
+.error-page__actions {
+  display: flex;
+  gap: var(--spacing-4, 1rem);
+  flex-wrap: wrap;
+}

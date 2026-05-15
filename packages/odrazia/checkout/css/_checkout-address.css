@@ -1,0 +1,76 @@
+.checkout-address {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4, 1rem);
+}
+
+.checkout-address__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2, 0.5rem);
+}
+
+.checkout-address__label {
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--neutral-700, #334155);
+}
+
+.checkout-address__select {
+  padding: var(--spacing-3, 0.75rem);
+  border: 1px solid var(--neutral-300, #cbd5e1);
+  border-radius: var(--radius-md, 0.375rem);
+  font-size: var(--font-size-base, 1rem);
+  color: var(--neutral-900, #0f172a);
+  background: var(--white, #ffffff);
+  width: 100%;
+}
+
+.checkout-address__select:focus {
+  outline: none;
+  border-color: var(--primary-500, #5d5fef);
+  box-shadow: 0 0 0 3px var(--primary-100, #ebf0fe);
+}
+
+.checkout-address__actions {
+  display: flex;
+  gap: var(--spacing-4, 1rem);
+  align-items: center;
+}
+
+.checkout-address__action {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--neutral-600, #475569);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.checkout-address__action:hover {
+  color: var(--neutral-900, #0f172a);
+}
+
+.checkout-address__action--primary {
+  color: var(--primary-600, #4a4cc5);
+}
+
+.checkout-address__action--primary:hover {
+  color: var(--primary-700, #383a9c);
+}
+
+.checkout-address__checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2, 0.5rem);
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--neutral-700, #334155);
+  cursor: pointer;
+}
+
+.checkout-address__checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary-500, #5d5fef);
+}

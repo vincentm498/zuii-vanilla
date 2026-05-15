@@ -279,7 +279,7 @@ kbd {
 .pg-demo-code-wrapper {
   overflow: hidden;
   transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s, transform 0.3s;
-  max-height: 5000px;
+  max-height: none;
   opacity: 1;
   transform: translateY(0);
 }
@@ -415,7 +415,7 @@ kbd {
 .pg-tabs-body-wrapper {
   overflow: hidden;
   transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
-  max-height: 5000px;
+  max-height: none;
   opacity: 1;
 }
 
