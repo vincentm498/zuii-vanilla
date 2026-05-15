@@ -1,0 +1,112 @@
+@import "./_account-nav.css";
+@import "./_account-info.css";
+@import "./_account-addresses.css";
+@import "./_account-orders.css";
+@import "./_account-order-detail.css";
+@import "./_account-favorites.css";
+@import "./_account-gift-cards.css";
+@import "./_account-loyalty.css";
+@import "./_account-activation.css";
+
+.account-wrapper {
+  container-type: inline-size;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.account {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--spacing-6, 1.5rem);
+  padding: var(--spacing-6, 1.5rem);
+}
+
+.account__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4, 1rem);
+}
+
+.account__section {
+  display: none;
+}
+
+.account__section--active {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4, 1rem);
+}
+
+.account__card {
+  background: var(--white, #ffffff);
+  border: 1px solid var(--neutral-200, #e2e8f0);
+  border-radius: var(--radius-lg, 0.5rem);
+  padding: var(--spacing-6, 1.5rem);
+  color: var(--neutral-900, #0f172a);
+}
+
+.account__card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-4, 1rem);
+}
+
+.account__card-heading {
+  font-size: var(--font-size-lg, 1.125rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--neutral-900, #0f172a);
+  margin: 0 0 var(--spacing-4, 1rem) 0;
+}
+
+.account__card-header .account__card-heading {
+  margin-bottom: 0;
+}
+
+.account__card-body {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@container (max-width: 804px) {
+  .account {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-4, 1rem);
+    gap: var(--spacing-4, 1rem);
+  }
+
+  .account__card {
+    padding: var(--spacing-4, 1rem);
+  }
+
+  .account-info__row {
+    grid-template-columns: 1fr;
+  }
+
+  .account-address__form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .account-order__summary {
+    grid-template-columns: 1fr;
+  }
+
+  /* .account-favorites__grid {
+    grid-template-columns: 1fr;
+  } */
+}
+
+@container (max-width: 450px) {
+  .account {
+    padding: var(--spacing-3, 0.75rem);
+    gap: var(--spacing-3, 0.75rem);
+  }
+
+  .account__card {
+    padding: var(--spacing-3, 0.75rem);
+  }
+}

@@ -11,7 +11,7 @@
   display: flex;
   flex-wrap: wrap;
   /* wrap naturel quand l'espace manque */
-  gap: var(--spacing-8);
+  gap: var(--spacing-8, 2rem);
   align-items: start;
   background: transparent !important;
   border: none !important;
@@ -26,23 +26,23 @@
   flex: 1 1 420px;
   /* croît librement, min 420px avant wrap */
   min-width: 0;
-  background: var(--white);
-  border: 1px solid var(--neutral-200);
+  background: var(--white, #ffffff);
+  border: 1px solid var(--neutral-200, #e2e8f0);
   border-radius: 24px;
   overflow: hidden;
 }
 
 .cart--v2 .cart__head {
-  background: var(--neutral-50);
-  padding: var(--spacing-6) var(--spacing-8);
-  border-bottom: 1px solid var(--neutral-200);
+  background: var(--neutral-50, #f8fafc);
+  padding: var(--spacing-6, 1.5rem) var(--spacing-8, 2rem);
+  border-bottom: 1px solid var(--neutral-200, #e2e8f0);
 }
 
 .cart--v2 .cart-item {
-  padding: var(--spacing-8);
-  border-bottom: 1px solid var(--neutral-100);
+  padding: var(--spacing-8, 2rem);
+  border-bottom: 1px solid var(--neutral-100, #f1f5f9);
   grid-template-columns: 3fr 1fr 1fr 1fr;
-  column-gap: var(--spacing-4);
+  column-gap: var(--spacing-4, 1rem);
   min-width: 0;
 }
 
@@ -58,17 +58,17 @@
   /* max 380px, peut rétrécir */
   min-width: 260px;
   position: sticky;
-  top: var(--spacing-6);
-  background: var(--white);
-  border: 1px solid var(--neutral-200);
+  top: var(--spacing-6, 1.5rem);
+  background: var(--white, #ffffff);
+  border: 1px solid var(--neutral-200, #e2e8f0);
   border-radius: 24px;
-  padding: var(--spacing-8);
+  padding: var(--spacing-8, 2rem);
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
 }
 
 .cart--v2 .cart__summary-title {
-  font-size: var(--font-size-2xl);
-  margin-bottom: var(--spacing-6);
+  font-size: var(--font-size-2xl, 1.5rem);
+  margin-bottom: var(--spacing-6, 1.5rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -76,25 +76,25 @@
 
 .cart--v2 .cart__summary-title::after {
   content: 'Articles';
-  font-size: var(--font-size-xs);
-  color: var(--neutral-400);
-  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-xs, 0.75rem);
+  color: var(--neutral-400, #94a3b8);
+  font-weight: var(--font-weight-medium, 500);
   text-transform: uppercase;
 }
 
 .cart--v2 .cart__promo {
-  margin-top: var(--spacing-6);
-  padding: var(--spacing-5);
-  background: var(--neutral-50);
+  margin-top: var(--spacing-6, 1.5rem);
+  padding: var(--spacing-5, 1.25rem);
+  background: var(--neutral-50, #f8fafc);
   border-radius: 16px;
-  border: 1px dashed var(--neutral-300);
+  border: 1px dashed var(--neutral-300, #cbd5e1);
 }
 
 .cart--v2 .cart__promo-title {
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
-  margin-bottom: var(--spacing-3);
-  color: var(--neutral-600);
+  font-size: var(--font-size-xs, 0.75rem);
+  font-weight: var(--font-weight-semibold, 600);
+  margin-bottom: var(--spacing-3, 0.75rem);
+  color: var(--neutral-600, #475569);
 }
 
 .cart--v2 .cart__promo-input {
@@ -102,11 +102,11 @@
 }
 
 .cart--v2 .cart__summary-row--total {
-  background: var(--neutral-100);
-  margin: var(--spacing-5) -32px -32px;
-  padding: var(--spacing-6) var(--spacing-8);
+  background: var(--neutral-100, #f1f5f9);
+  margin: var(--spacing-5, 1.25rem) -32px -32px;
+  padding: var(--spacing-6, 1.5rem) var(--spacing-8, 2rem);
   border-radius: 0 0 24px 24px;
-  border-top: 1px solid var(--neutral-200);
+  border-top: 1px solid var(--neutral-200, #e2e8f0);
 }
 
 .cart--v2 .cart__actions {
@@ -119,16 +119,16 @@
 }
 
 .cart--v2 .cart__continue-btn {
-  color: var(--neutral-500);
-  font-size: var(--font-size-sm);
+  color: var(--neutral-500, #64748b);
+  font-size: var(--font-size-sm, 0.875rem);
 }
 
 .cart--v2 .cart__empty {
   flex: 1 1 100%;
   /* toujours pleine largeur */
-  background: var(--white);
+  background: var(--white, #ffffff);
   border-radius: 24px;
-  border: 1px solid var(--neutral-200);
+  border: 1px solid var(--neutral-200, #e2e8f0);
   padding: 60px;
   text-align: center;
 }
@@ -152,9 +152,9 @@
       "product product product"
       "price   qty     total";
     grid-template-columns: auto 1fr auto;
-    padding: var(--spacing-4);
-    gap: var(--spacing-3);
-    column-gap: var(--spacing-4);
+    padding: var(--spacing-4, 1rem);
+    gap: var(--spacing-3, 0.75rem);
+    column-gap: var(--spacing-4, 1rem);
   }
 
   .cart--v2 .cart-item__wrapper {

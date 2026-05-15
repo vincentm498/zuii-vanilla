@@ -1,0 +1,25 @@
+<div class="account-favorites" data-js-account-favorites>
+  <div class="account-favorites__empty" data-js-favorites-empty>
+    <p>Vous n'avez pas encore de produit en favoris</p>
+  </div>
+
+  <ul class="account-favorites__grid" data-js-favorites-grid style="display: none;"></ul>
+
+  <template data-js-template-favorite-item>
+    <li class="account-favorites__item" data-js-favorite-item>
+      <article class="product-card">
+        <div class="product-card__image-wrapper">
+          <img src="" alt="" class="product-card__image" data-js-favorite-image>
+          <button type="button" class="product-card__remove" data-js-favorite-remove title="Retirer des favoris">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+        <div class="product-card__content">
+          <h3 class="product-card__name" data-js-favorite-name></h3>
+          <span class="product-card__price" data-js-favorite-price></span>
+          <a href="#" class="btn btn--primary btn--sm btn--block" data-js-favorite-view>Voir le produit</a>
+        </div>
+      </article>
+    </li>
+  </template>
+</div>

@@ -1,0 +1,65 @@
+.account-orders__empty {
+  padding: var(--spacing-8, 2rem);
+  text-align: center;
+  color: var(--neutral-500, #64748b);
+}
+
+.account-orders__table-wrapper {
+  overflow-x: auto;
+}
+
+.account-orders__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.account-orders__table th,
+.account-orders__table td {
+  padding: var(--spacing-3, 0.75rem) var(--spacing-4, 1rem);
+  text-align: left;
+  border-bottom: 1px solid var(--neutral-100, #f1f5f9);
+}
+
+.account-orders__table th {
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--neutral-600, #475569);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.account-orders__row:hover {
+  background-color: var(--neutral-50, #f8fafc);
+}
+
+.account-orders__cell-ref {
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--primary-600, #4a4cc5);
+  font-family: var(--font-family-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace);
+  font-size: var(--font-size-sm, 0.875rem);
+}
+
+.account-orders__cell-status {
+  font-size: var(--font-size-sm, 0.875rem);
+}
+
+.account-orders__cell-total {
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--neutral-900, #0f172a);
+}
+
+.account-orders__cell-date {
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--neutral-500, #64748b);
+}
+
+.account-orders__cell-actions {
+  display: flex;
+  gap: var(--spacing-2, 0.5rem);
+}
+
+.account-orders__pagination {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-4, 1rem) 0;
+}

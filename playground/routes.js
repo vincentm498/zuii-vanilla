@@ -124,5 +124,15 @@ export const routes = {
       general: 'Interface simple pour la demande de réinitialisation de mot de passe par email.',
       html: 'Le formulaire utilise l\'attribut <code>data-js-auth-form="forgot"</code>.'
     }
+  },
+  'account': {
+    title: 'Account',
+    package: '@zuii/odrazia/account',
+    page: '../packages/odrazia/account/account.html',
+    descriptions: {
+      general: 'Composant complet de gestion du compte client : informations personnelles, adresses, commandes, favoris, cartes cadeaux et fidélité. Toutes les sections sont intégrées dans un seul fichier HTML avec navigation latérale.',
+      html: 'Utilisez la structure <code>.account</code> avec la navigation latérale <code>.account__nav</code>. Les sections sont identifiées par l\'attribut <code>data-js-account-section</code> et la navigation par <code>data-js-nav-link</code>.',
+      js: 'L\'initialisation est automatique via <code>Account.init()</code>. Passez les données client en configuration pour le pré-remplissage.'
+    }
   }
 };

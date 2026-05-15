@@ -1,0 +1,66 @@
+<div class="account-order" data-js-account-order>
+  <a href="#" class="account-order__back" data-js-order-back>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Retour à la liste
+  </a>
+
+  <h2 class="account-order__heading" data-js-order-title>Commande</h2>
+
+  <div class="account-order__summary" data-js-order-summary>
+    <div class="account-order__summary-block">
+      <h3 class="account-order__summary-title">Récapitulatif</h3>
+      <ul class="account-order__summary-list">
+        <li class="account-order__summary-item" data-js-order-field="date"></li>
+        <li class="account-order__summary-item" data-js-order-field="reference"></li>
+        <li class="account-order__summary-item" data-js-order-field="status"></li>
+        <li class="account-order__summary-item" data-js-order-field="shipping"></li>
+        <li class="account-order__summary-item" data-js-order-field="shippingPrice"></li>
+        <li class="account-order__summary-item" data-js-order-field="total"></li>
+      </ul>
+    </div>
+
+    <div class="account-order__address" data-js-order-address-invoice>
+      <h3 class="account-order__summary-title">Facturation</h3>
+      <ul class="account-order__summary-list" data-js-address-data="invoice"></ul>
+    </div>
+
+    <div class="account-order__address" data-js-order-address-delivery>
+      <h3 class="account-order__summary-title">Livraison</h3>
+      <ul class="account-order__summary-list" data-js-address-data="delivery"></ul>
+    </div>
+  </div>
+
+  <h3 class="account-order__subheading">Détail de ma commande</h3>
+
+  <div class="account-order__table-wrapper">
+    <table class="account-order__table">
+      <thead>
+        <tr>
+          <th scope="col">Nom</th>
+          <th scope="col" class="text-center">Quantité</th>
+          <th scope="col" class="text-center">Personnalisation</th>
+          <th scope="col" class="text-center">Prix</th>
+        </tr>
+      </thead>
+      <tbody data-js-order-items></tbody>
+    </table>
+  </div>
+
+  <template data-js-template-order-item>
+    <tr class="account-order__item-row" data-js-order-item-row>
+      <th scope="row" class="account-order__item-name" data-js-order-item-name></th>
+      <td class="account-order__item-qty text-center" data-js-order-item-qty></td>
+      <td class="account-order__item-custom text-center" data-js-order-item-custom></td>
+      <td class="account-order__item-total text-center" data-js-order-item-total></td>
+    </tr>
+  </template>
+
+  <template data-js-template-order-pack>
+    <tr class="account-order__item-row" data-js-order-item-row>
+      <th scope="row" class="account-order__item-name account-order__item-name--pack" data-js-order-item-name></th>
+      <td class="account-order__item-qty text-center" data-js-order-item-qty></td>
+      <td class="account-order__item-custom text-center" data-js-order-item-custom></td>
+      <td class="account-order__item-total text-center" data-js-order-item-total></td>
+    </tr>
+  </template>
+</div>

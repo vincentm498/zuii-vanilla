@@ -1,0 +1,48 @@
+.account-loyalty {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4, 1rem);
+}
+
+.account-loyalty__title {
+  font-size: var(--font-size-base, 1rem);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--neutral-700, #334155);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.account-loyalty__points {
+  font-size: var(--font-size-lg, 1.125rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--primary-600, #4a4cc5);
+}
+
+.account-loyalty__progress {
+  width: 100%;
+  height: 12px;
+  background: var(--neutral-200, #e2e8f0);
+  border-radius: var(--radius-full, 9999px);
+  overflow: hidden;
+}
+
+.account-loyalty__progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-400, #8da4fa), var(--primary-600, #4a4cc5));
+  border-radius: var(--radius-full, 9999px);
+  transition: width 0.5s ease;
+}
+
+.account-loyalty__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4, 1rem);
+}
+
+.account-loyalty__goal {
+  margin: 0;
+  font-size: var(--font-size-sm, 0.875rem);
+}

@@ -11,10 +11,10 @@
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   align-items: center;
-  padding: var(--spacing-6);
-  border-bottom: 1px solid var(--neutral-100);
+  padding: var(--spacing-6, 1.5rem);
+  border-bottom: 1px solid var(--neutral-100, #f1f5f9);
   transition: background 0.2s;
-  column-gap: var(--spacing-4);
+  column-gap: var(--spacing-4, 1rem);
 }
 
 .cart-item:hover {
@@ -28,7 +28,7 @@
 /* Infos Produit (Vignette + Titre) */
 .cart-item__wrapper {
   display: flex;
-  gap: var(--spacing-5);
+  gap: var(--spacing-5, 1.25rem);
   align-items: center;
 }
 
@@ -36,10 +36,10 @@
   width: 100px;
   height: 100px;
   flex-shrink: 0;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-lg, 0.5rem);
   overflow: hidden;
-  background: var(--neutral-100);
-  border: 1px solid var(--neutral-200);
+  background: var(--neutral-100, #f1f5f9);
+  border: 1px solid var(--neutral-200, #e2e8f0);
 }
 
 .cart-item__img {
@@ -56,17 +56,17 @@
 
 .cart-item__heading {
   margin: 0;
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
-  color: var(--neutral-900);
+  font-size: var(--font-size-base, 1rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--neutral-900, #0f172a);
 }
 
 .cart-item__summary {
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: var(--font-size-xs);
-  color: var(--neutral-500);
+  font-size: var(--font-size-xs, 0.75rem);
+  color: var(--neutral-500, #64748b);
 }
 
 /* Prix unitaire */
@@ -77,27 +77,27 @@
 }
 
 .old-price {
-  font-size: var(--font-size-xs);
-  color: var(--neutral-400);
+  font-size: var(--font-size-xs, 0.75rem);
+  color: var(--neutral-400, #94a3b8);
   text-decoration: line-through;
 }
 
 .current-price {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  color: var(--neutral-900);
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--neutral-900, #0f172a);
 }
 
 /* Contrôles de Quantité (Design Input Group) */
 .cart-item__quantity-controls {
   display: flex;
   align-items: center;
-  gap: var(--spacing-2);
-  background: var(--neutral-50);
-  padding: var(--spacing-1);
-  border-radius: var(--radius-md);
+  gap: var(--spacing-2, 0.5rem);
+  background: var(--neutral-50, #f8fafc);
+  padding: var(--spacing-1, 0.25rem);
+  border-radius: var(--radius-md, 0.375rem);
   width: fit-content;
-  border: 1px solid var(--neutral-200);
+  border: 1px solid var(--neutral-200, #e2e8f0);
 }
 
 .cart-item__quantity-input {
@@ -105,15 +105,15 @@
   border: none;
   background: transparent;
   text-align: center;
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  color: var(--neutral-900);
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--neutral-900, #0f172a);
   outline: none;
 }
 
 /* Prix total par ligne d'article */
 .cart-item__total {
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-bold);
-  color: var(--neutral-900);
+  font-size: var(--font-size-base, 1rem);
+  font-weight: var(--font-weight-bold, 700);
+  color: var(--neutral-900, #0f172a);
 }

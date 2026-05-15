@@ -1,0 +1,738 @@
+<div class="account-wrapper">
+  <div class="account" data-js-account>
+    <aside class="account__nav">
+      <nav class="account__nav-list" data-js-account-nav>
+        <a href="#informations" class="account__nav-link account__nav-link--active" data-js-nav-link="informations">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+          Mes informations
+        </a>
+        <a href="#addresses" class="account__nav-link" data-js-nav-link="addresses">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          Mes adresses
+        </a>
+        <a href="#orders" class="account__nav-link" data-js-nav-link="orders">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+          Mes commandes
+        </a>
+        <a href="#favorites" class="account__nav-link" data-js-nav-link="favorites">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+          </svg>
+          Mes favoris
+        </a>
+        <a href="#gift-cards" class="account__nav-link" data-js-nav-link="gift-cards">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="M12 8v8" />
+            <path d="M16 12H8" />
+          </svg>
+          Mes cartes cadeaux
+        </a>
+        <a href="#loyalty" class="account__nav-link" data-js-nav-link="loyalty">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+          </svg>
+          Fidélité
+        </a>
+      </nav>
+    </aside>
+
+    <div class="account__content">
+      <div class="account-activation" data-js-account-activation style="display: none;">
+        <div class="account-activation__message account-activation__message--warning" data-js-activation-message>
+          Votre compte n'est pas actif, un code de validation vous a été envoyé par e-mail.
+          Vous pouvez renvoyer un code en cliquant
+          <button type="button" class="account-activation__link" data-js-activation-resend>ICI</button>
+        </div>
+      </div>
+
+      <section class="account__section account__section--active" data-js-account-section="informations">
+        <div class="account__card">
+          <h2 class="account__card-heading">Mes informations</h2>
+          <div class="account__card-body account-info" data-js-account-info>
+            <form class="account-info__form" data-js-info-form>
+              <div class="account-info__row">
+                <div class="account-info__group">
+                  <label class="account-info__label" for="info-lastname">Nom</label>
+                  <input type="text" id="info-lastname" name="lastname" class="account-info__input" value="Dupont"
+                    required data-js-info-field="lastname">
+                </div>
+                <div class="account-info__group">
+                  <label class="account-info__label" for="info-firstname">Prénom</label>
+                  <input type="text" id="info-firstname" name="firstname" class="account-info__input" value="Marie"
+                    required data-js-info-field="firstname">
+                </div>
+              </div>
+              <div class="account-info__group">
+                <label class="account-info__label" for="info-email">Email</label>
+                <input type="email" id="info-email" name="email"
+                  class="account-info__input account-info__input--disabled" value="marie.dupont@email.com" disabled
+                  data-js-info-field="email">
+              </div>
+              <div class="account-info__group">
+                <label class="account-info__label" for="info-group">Type de compte</label>
+                <input type="text" id="info-group" name="customerGroup"
+                  class="account-info__input account-info__input--disabled" value="Particulier" disabled
+                  data-js-info-field="customerGroup">
+              </div>
+              <div class="account-info__group">
+                <label class="account-info__label" for="info-birthday">Date d'anniversaire</label>
+                <input type="date" id="info-birthday" name="birthday" class="account-info__input" value="1990-06-15"
+                  data-js-info-field="birthday">
+              </div>
+              <div class="account-info__fields" data-js-info-custom-fields></div>
+              <div class="account-info__actions">
+                <button type="submit" class="btn btn--primary">Mettre à jour</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="account__card">
+          <h2 class="account__card-heading">Points de fidélité</h2>
+          <div class="account__card-body">
+            <div class="account-loyalty" data-js-account-loyalty>
+              <p class="account-loyalty__title">
+                Points de fidélité
+                <span class="account-loyalty__points" data-js-loyalty-points>45 points</span>
+              </p>
+              <div class="account-loyalty__progress" data-js-loyalty-progress>
+                <div class="account-loyalty__progress-bar" data-js-loyalty-bar style="width: 45%;"></div>
+              </div>
+              <div class="account-loyalty__info" data-js-loyalty-info>
+                <p class="account-loyalty__goal" data-js-loyalty-goal>
+                  <span class="text-alerts-warning">100 points minimum pour convertir en bon d'achat</span>
+                </p>
+                <button type="button" class="btn btn--primary" data-js-loyalty-redeem style="display: none;">
+                  Utiliser mes points
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="account__section" data-js-account-section="addresses">
+        <div class="account__card">
+          <div class="account__card-header">
+            <h2 class="account__card-heading">Mes adresses</h2>
+            <button type="button" class="btn btn--primary btn--sm" data-js-address-add>Ajouter</button>
+          </div>
+          <div class="account__card-body account-addresses" data-js-account-addresses>
+            <div class="account-addresses__empty" data-js-addresses-empty style="display: none;">
+              <p>Vous n'avez pas encore enregistré d'adresse</p>
+            </div>
+            <div class="account-addresses__table-wrapper" data-js-addresses-table>
+              <table class="account-addresses__table">
+                <thead>
+                  <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Adresse</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody data-js-addresses-body>
+                  <tr class="account-addresses__row" data-js-address-row data-address-id="1"
+                    data-address-name="Domicile" data-address-address="12 Rue de la Paix" data-address-postcode="75001"
+                    data-address-city="Paris">
+                    <th scope="row" class="account-addresses__cell-name" data-js-address-name>Domicile</th>
+                    <td class="account-addresses__cell-address" data-js-address-full>12 Rue de la Paix, 75001 Paris</td>
+                    <td class="account-addresses__cell-actions">
+                      <button type="button" class="btn btn--icon btn--primary" data-js-address-edit title="Modifier">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" aria-hidden="true">
+                          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                        </svg>
+                      </button>
+                      <button type="button" class="btn btn--icon btn--danger" data-js-address-delete title="Supprimer">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" aria-hidden="true">
+                          <polyline points="3 6 5 6 21 6" />
+                          <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+                          <path d="M10 11v6" />
+                          <path d="M14 11v6" />
+                          <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="account-addresses__row" data-js-address-row data-address-id="2" data-address-name="Bureau"
+                    data-address-address="45 Avenue des Champs-Élysées" data-address-postcode="75008"
+                    data-address-city="Paris">
+                    <th scope="row" class="account-addresses__cell-name" data-js-address-name>Bureau</th>
+                    <td class="account-addresses__cell-address" data-js-address-full>45 Avenue des Champs-Élysées, 75008
+                      Paris</td>
+                    <td class="account-addresses__cell-actions">
+                      <button type="button" class="btn btn--icon btn--primary" data-js-address-edit title="Modifier">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" aria-hidden="true">
+                          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                        </svg>
+                      </button>
+                      <button type="button" class="btn btn--icon btn--danger" data-js-address-delete title="Supprimer">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" aria-hidden="true">
+                          <polyline points="3 6 5 6 21 6" />
+                          <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+                          <path d="M10 11v6" />
+                          <path d="M14 11v6" />
+                          <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="account-addresses__row" data-js-address-row data-address-id="3"
+                    data-address-name="Résidence secondaire" data-address-address="8 Rue des Lilas"
+                    data-address-postcode="69002" data-address-city="Lyon">
+                    <th scope="row" class="account-addresses__cell-name" data-js-address-name>Résidence secondaire</th>
+                    <td class="account-addresses__cell-address" data-js-address-full>8 Rue des Lilas, 69002 Lyon</td>
+                    <td class="account-addresses__cell-actions">
+                      <button type="button" class="btn btn--icon btn--primary" data-js-address-edit title="Modifier">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" aria-hidden="true">
+                          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                        </svg>
+                      </button>
+                      <button type="button" class="btn btn--icon btn--danger" data-js-address-delete title="Supprimer">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" aria-hidden="true">
+                          <polyline points="3 6 5 6 21 6" />
+                          <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+                          <path d="M10 11v6" />
+                          <path d="M14 11v6" />
+                          <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="account-addresses__pagination" data-js-addresses-pagination></div>
+            </div>
+            <template data-js-template-address-row>
+              <tr class="account-addresses__row" data-js-address-row>
+                <th scope="row" class="account-addresses__cell-name" data-js-address-name></th>
+                <td class="account-addresses__cell-address" data-js-address-full></td>
+                <td class="account-addresses__cell-actions">
+                  <button type="button" class="btn btn--icon btn--primary" data-js-address-edit title="Modifier">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      aria-hidden="true">
+                      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                      <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                    </svg>
+                  </button>
+                  <button type="button" class="btn btn--icon btn--danger" data-js-address-delete title="Supprimer">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      aria-hidden="true">
+                      <polyline points="3 6 5 6 21 6" />
+                      <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+                      <path d="M10 11v6" />
+                      <path d="M14 11v6" />
+                      <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2" />
+                    </svg>
+                  </button>
+                </td>
+              </tr>
+            </template>
+          </div>
+        </div>
+      </section>
+
+      <section class="account__section" data-js-account-section="orders">
+        <div class="account__card">
+          <h2 class="account__card-heading">Mes commandes</h2>
+          <div class="account__card-body account-orders" data-js-account-orders>
+            <div class="account-orders__empty" data-js-orders-empty style="display: none;">
+              <p>Vous n'avez pas encore effectué de commande</p>
+            </div>
+            <div class="account-orders__table-wrapper" data-js-orders-table>
+              <table class="account-orders__table">
+                <thead>
+                  <tr>
+                    <th scope="col">Référence</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody data-js-orders-body>
+                  <tr class="account-orders__row">
+                    <th scope="row" class="account-orders__cell-ref">CMD-2024-00452</th>
+                    <td class="account-orders__cell-status"><span
+                        style="color: var(--success-600); font-weight: var(--font-weight-medium);">Livrée</span></td>
+                    <td class="account-orders__cell-total">129,00 €</td>
+                    <td class="account-orders__cell-date">12/03/2024</td>
+                    <td class="account-orders__cell-actions">
+                      <a href="#" class="btn btn--icon btn--primary" data-js-order-view title="Voir">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" aria-hidden="true">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                          <circle cx="12" cy="12" r="3" />
+                        </svg>
+                      </a>
+                      <a href="#" class="btn btn--icon btn--secondary" data-js-order-invoice title="Facture">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" aria-hidden="true">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                          <polyline points="14 2 14 8 20 8" />
+                          <line x1="16" y1="13" x2="8" y2="13" />
+                          <line x1="16" y1="17" x2="8" y2="17" />
+                          <polyline points="10 9 9 9 8 9" />
+                        </svg>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="account-orders__row">
+                    <th scope="row" class="account-orders__cell-ref">CMD-2024-00489</th>
+                    <td class="account-orders__cell-status"><span
+                        style="color: var(--info-600); font-weight: var(--font-weight-medium);">En préparation</span>
+                    </td>
+                    <td class="account-orders__cell-total">259,99 €</td>
+                    <td class="account-orders__cell-date">28/03/2024</td>
+                    <td class="account-orders__cell-actions">
+                      <a href="#" class="btn btn--icon btn--primary" data-js-order-view title="Voir">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" aria-hidden="true">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                          <circle cx="12" cy="12" r="3" />
+                        </svg>
+                      </a>
+                      <a href="#" class="btn btn--icon btn--secondary" data-js-order-invoice title="Facture">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" aria-hidden="true">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                          <polyline points="14 2 14 8 20 8" />
+                          <line x1="16" y1="13" x2="8" y2="13" />
+                          <line x1="16" y1="17" x2="8" y2="17" />
+                          <polyline points="10 9 9 9 8 9" />
+                        </svg>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="account-orders__row">
+                    <th scope="row" class="account-orders__cell-ref">CMD-2024-00512</th>
+                    <td class="account-orders__cell-status"><span
+                        style="color: var(--warning-600); font-weight: var(--font-weight-medium);">En attente</span>
+                    </td>
+                    <td class="account-orders__cell-total">79,50 €</td>
+                    <td class="account-orders__cell-date">05/04/2024</td>
+                    <td class="account-orders__cell-actions">
+                      <a href="#" class="btn btn--icon btn--primary" data-js-order-view title="Voir">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" aria-hidden="true">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                          <circle cx="12" cy="12" r="3" />
+                        </svg>
+                      </a>
+                      <a href="#" class="btn btn--icon btn--secondary" data-js-order-invoice title="Facture">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" aria-hidden="true">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                          <polyline points="14 2 14 8 20 8" />
+                          <line x1="16" y1="13" x2="8" y2="13" />
+                          <line x1="16" y1="17" x2="8" y2="17" />
+                          <polyline points="10 9 9 9 8 9" />
+                        </svg>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="account-orders__pagination" data-js-orders-pagination></div>
+            </div>
+            <template data-js-template-order-row>
+              <tr class="account-orders__row" data-js-order-row>
+                <th scope="row" class="account-orders__cell-ref" data-js-order-ref></th>
+                <td class="account-orders__cell-status" data-js-order-status></td>
+                <td class="account-orders__cell-total" data-js-order-total></td>
+                <td class="account-orders__cell-date" data-js-order-date></td>
+                <td class="account-orders__cell-actions">
+                  <a href="#" class="btn btn--icon btn--primary" data-js-order-view title="Voir">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      aria-hidden="true">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </a>
+                  <a href="#" class="btn btn--icon btn--secondary" data-js-order-invoice title="Facture">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      aria-hidden="true">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                      <polyline points="14 2 14 8 20 8" />
+                      <line x1="16" y1="13" x2="8" y2="13" />
+                      <line x1="16" y1="17" x2="8" y2="17" />
+                      <polyline points="10 9 9 9 8 9" />
+                    </svg>
+                  </a>
+                </td>
+              </tr>
+            </template>
+          </div>
+        </div>
+      </section>
+
+      <section class="account__section" data-js-account-section="order-detail">
+        <div class="account__card">
+          <div class="account__card-body account-order" data-js-account-order>
+            <a href="#" class="account-order__back" data-js-order-back>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <line x1="19" y1="12" x2="5" y2="12" />
+                <polyline points="12 19 5 12 12 5" />
+              </svg>
+              Retour à la liste
+            </a>
+            <h2 class="account-order__heading" data-js-order-title>Commande : CMD-2024-00452</h2>
+            <div class="account-order__summary" data-js-order-summary>
+              <div class="account-order__summary-block">
+                <h3 class="account-order__summary-title">Récapitulatif</h3>
+                <ul class="account-order__summary-list">
+                  <li class="account-order__summary-item">Date : 12/03/2024</li>
+                  <li class="account-order__summary-item">Référence : CMD-2024-00452</li>
+                  <li class="account-order__summary-item">Status : Livrée</li>
+                  <li class="account-order__summary-item">Transporteur : Colissimo</li>
+                  <li class="account-order__summary-item">Frais de transport : Offert</li>
+                  <li class="account-order__summary-item">Total : 129,00 €</li>
+                </ul>
+              </div>
+              <div class="account-order__address" data-js-order-address-invoice>
+                <h3 class="account-order__summary-title">Facturation</h3>
+                <ul class="account-order__summary-list" data-js-address-data="invoice">
+                  <li>Marie Dupont</li>
+                  <li>12 Rue de la Paix</li>
+                  <li>75001 Paris</li>
+                </ul>
+              </div>
+              <div class="account-order__address" data-js-order-address-delivery>
+                <h3 class="account-order__summary-title">Livraison</h3>
+                <ul class="account-order__summary-list" data-js-address-data="delivery">
+                  <li>Marie Dupont</li>
+                  <li>45 Avenue des Champs-Élysées</li>
+                  <li>75008 Paris</li>
+                </ul>
+              </div>
+            </div>
+            <h3 class="account-order__subheading">Détail de ma commande</h3>
+            <div class="account-order__table-wrapper">
+              <table class="account-order__table">
+                <thead>
+                  <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col" class="text-center">Quantité</th>
+                    <th scope="col" class="text-center">Personnalisation</th>
+                    <th scope="col" class="text-center">Prix</th>
+                  </tr>
+                </thead>
+                <tbody data-js-order-items>
+                  <tr class="account-order__item-row">
+                    <th scope="row" class="account-order__item-name">Casque Sans Fil Premium</th>
+                    <td class="account-order__item-qty text-center">1</td>
+                    <td class="account-order__item-custom text-center">
+                      <ul>
+                        <li>Couleur : Noir Sidéral</li>
+                      </ul>
+                    </td>
+                    <td class="account-order__item-total text-center">129,00 €</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <template data-js-template-order-item>
+              <tr class="account-order__item-row" data-js-order-item-row>
+                <th scope="row" class="account-order__item-name" data-js-order-item-name></th>
+                <td class="account-order__item-qty text-center" data-js-order-item-qty></td>
+                <td class="account-order__item-custom text-center" data-js-order-item-custom></td>
+                <td class="account-order__item-total text-center" data-js-order-item-total></td>
+              </tr>
+            </template>
+            <template data-js-template-order-pack>
+              <tr class="account-order__item-row" data-js-order-item-row>
+                <th scope="row" class="account-order__item-name account-order__item-name--pack" data-js-order-item-name>
+                </th>
+                <td class="account-order__item-qty text-center" data-js-order-item-qty></td>
+                <td class="account-order__item-custom text-center" data-js-order-item-custom></td>
+                <td class="account-order__item-total text-center" data-js-order-item-total></td>
+              </tr>
+            </template>
+          </div>
+        </div>
+      </section>
+
+      <section class="account__section" data-js-account-section="favorites">
+        <div class="account__card">
+          <h2 class="account__card-heading">Mes favoris</h2>
+          <div class="account__card-body account-favorites" data-js-account-favorites>
+            <div class="account-favorites__empty" data-js-favorites-empty style="display: none;">
+              <p>Vous n'avez pas encore de produit en favoris</p>
+            </div>
+            <ul class="account-favorites__grid" data-js-favorites-grid>
+              <li class="account-favorites__item">
+                <article class="product-card">
+                  <div class="product-card__image-wrapper">
+                    <img src="https://picsum.photos/seed/casque/300/300" alt="Casque Sans Fil"
+                      class="product-card__image">
+                    <button type="button" class="product-card__remove" title="Retirer des favoris">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                        stroke-width="2" aria-hidden="true">
+                        <path
+                          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__content">
+                    <h3 class="product-card__name">Casque Sans Fil Premium</h3>
+                    <span class="product-card__price">129,00 €</span>
+                    <a href="#" class="btn btn--primary btn--sm btn--block">Voir le produit</a>
+                  </div>
+                </article>
+              </li>
+              <li class="account-favorites__item">
+                <article class="product-card">
+                  <div class="product-card__image-wrapper">
+                    <img src="https://picsum.photos/seed/montre/300/300" alt="Montre Connectée"
+                      class="product-card__image">
+                    <button type="button" class="product-card__remove" title="Retirer des favoris">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                        stroke-width="2" aria-hidden="true">
+                        <path
+                          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__content">
+                    <h3 class="product-card__name">Montre Connectée Sport</h3>
+                    <span class="product-card__price">199,00 €</span>
+                    <a href="#" class="btn btn--primary btn--sm btn--block">Voir le produit</a>
+                  </div>
+                </article>
+              </li>
+              <li class="account-favorites__item">
+                <article class="product-card">
+                  <div class="product-card__image-wrapper">
+                    <img src="https://picsum.photos/seed/enceinte/300/300" alt="Enceinte Bluetooth"
+                      class="product-card__image">
+                    <button type="button" class="product-card__remove" title="Retirer des favoris">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                        stroke-width="2" aria-hidden="true">
+                        <path
+                          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__content">
+                    <h3 class="product-card__name">Enceinte Bluetooth Portable</h3>
+                    <span class="product-card__price">79,99 €</span>
+                    <a href="#" class="btn btn--primary btn--sm btn--block">Voir le produit</a>
+                  </div>
+                </article>
+              </li>
+            </ul>
+            <template data-js-template-favorite-item>
+              <li class="account-favorites__item" data-js-favorite-item>
+                <article class="product-card">
+                  <div class="product-card__image-wrapper">
+                    <img src="" alt="" class="product-card__image" data-js-favorite-image>
+                    <button type="button" class="product-card__remove" data-js-favorite-remove
+                      title="Retirer des favoris">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                        stroke-width="2" aria-hidden="true">
+                        <path
+                          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="product-card__content">
+                    <h3 class="product-card__name" data-js-favorite-name></h3>
+                    <span class="product-card__price" data-js-favorite-price></span>
+                    <a href="#" class="btn btn--primary btn--sm btn--block" data-js-favorite-view>Voir le produit</a>
+                  </div>
+                </article>
+              </li>
+            </template>
+          </div>
+        </div>
+      </section>
+
+      <section class="account__section" data-js-account-section="gift-cards">
+        <div class="account__card">
+          <h2 class="account__card-heading">Mes cartes cadeaux</h2>
+          <div class="account__card-body account-gift-cards" data-js-account-gift-cards>
+            <div class="account-gift-cards__empty" data-js-gift-cards-empty style="display: none;">
+              <p>Vous n'avez pas de carte cadeau</p>
+            </div>
+            <div class="account-gift-cards__table-wrapper" data-js-gift-cards-table>
+              <table class="account-gift-cards__table">
+                <thead>
+                  <tr>
+                    <th scope="col">Status</th>
+                    <th scope="col">Code</th>
+                    <th scope="col">Montant restant</th>
+                    <th scope="col">Date expiration</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody data-js-gift-cards-body>
+                  <tr class="account-gift-cards__row">
+                    <th scope="row" class="account-gift-cards__cell-status"><span
+                        style="color: var(--success-600);">Active</span></th>
+                    <td class="account-gift-cards__cell-code">
+                      <span class="gift-card-code">GIFT-AB12-CD34</span>
+                      <button type="button" class="gift-card-code__copy" data-js-copy-code title="Copier le code">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" aria-hidden="true">
+                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                        </svg>
+                      </button>
+                    </td>
+                    <td class="account-gift-cards__cell-amount">50,00 €</td>
+                    <td class="account-gift-cards__cell-expiry">31/12/2025</td>
+                    <td class="account-gift-cards__cell-actions">
+                      <a href="#" class="btn btn--sm btn--primary">Voir</a>
+                    </td>
+                  </tr>
+                  <tr class="account-gift-cards__row">
+                    <th scope="row" class="account-gift-cards__cell-status"><span
+                        style="color: var(--danger-600);">Expirée</span></th>
+                    <td class="account-gift-cards__cell-code">
+                      <span class="gift-card-code">GIFT-EF56-GH78</span>
+                      <button type="button" class="gift-card-code__copy" data-js-copy-code title="Copier le code">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" aria-hidden="true">
+                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                        </svg>
+                      </button>
+                    </td>
+                    <td class="account-gift-cards__cell-amount">25,00 €</td>
+                    <td class="account-gift-cards__cell-expiry">01/01/2024</td>
+                    <td class="account-gift-cards__cell-actions">
+                      <a href="#" class="btn btn--sm btn--primary">Voir</a>
+                    </td>
+                  </tr>
+                  <tr class="account-gift-cards__row">
+                    <th scope="row" class="account-gift-cards__cell-status"><span
+                        style="color: var(--neutral-500);">Utilisée</span></th>
+                    <td class="account-gift-cards__cell-code">
+                      <span class="gift-card-code">GIFT-IJ90-KL12</span>
+                      <button type="button" class="gift-card-code__copy" data-js-copy-code title="Copier le code">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" aria-hidden="true">
+                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                        </svg>
+                      </button>
+                    </td>
+                    <td class="account-gift-cards__cell-amount">0,00 €</td>
+                    <td class="account-gift-cards__cell-expiry">15/06/2024</td>
+                    <td class="account-gift-cards__cell-actions">
+                      <a href="#" class="btn btn--sm btn--primary">Voir</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="account-gift-cards__pagination" data-js-gift-cards-pagination></div>
+            </div>
+            <template data-js-template-gift-card-row>
+              <tr class="account-gift-cards__row" data-js-gift-card-row>
+                <th scope="row" class="account-gift-cards__cell-status" data-js-gift-card-status></th>
+                <td class="account-gift-cards__cell-code">
+                  <span class="gift-card-code" data-js-gift-card-code></span>
+                  <button type="button" class="gift-card-code__copy" data-js-copy-code title="Copier le code">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                      aria-hidden="true">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                    </svg>
+                  </button>
+                </td>
+                <td class="account-gift-cards__cell-amount" data-js-gift-card-amount></td>
+                <td class="account-gift-cards__cell-expiry" data-js-gift-card-expiry></td>
+                <td class="account-gift-cards__cell-actions">
+                  <a href="#" class="btn btn--sm btn--primary" data-js-gift-card-view>Voir</a>
+                </td>
+              </tr>
+            </template>
+          </div>
+        </div>
+      </section>
+
+      <section class="account__section" data-js-account-section="loyalty">
+        <div class="account__card">
+          <h2 class="account__card-heading">Fidélité</h2>
+          <div class="account__card-body">
+            <div class="account-loyalty" data-js-account-loyalty>
+              <p class="account-loyalty__title">
+                Points de fidélité
+                <span class="account-loyalty__points" data-js-loyalty-points>45 points</span>
+              </p>
+              <div class="account-loyalty__progress" data-js-loyalty-progress>
+                <div class="account-loyalty__progress-bar" data-js-loyalty-bar style="width: 45%;"></div>
+              </div>
+              <div class="account-loyalty__info" data-js-loyalty-info>
+                <p class="account-loyalty__goal" data-js-loyalty-goal>
+                  <span class="text-alerts-warning">100 points minimum pour convertir en bon d'achat</span>
+                </p>
+                <button type="button" class="btn btn--primary" data-js-loyalty-redeem style="display: none;">
+                  Utiliser mes points
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <template data-js-template-address-form>
+      <form class="account-address__form" data-js-address-form>
+        <div class="account-address__form-group">
+          <label class="account-address__label">Nom</label>
+          <input type="text" name="name" class="account-address__input" required>
+        </div>
+        <div class="account-address__form-group">
+          <label class="account-address__label">Adresse</label>
+          <input type="text" name="address" class="account-address__input" required>
+        </div>
+        <div class="account-address__form-group">
+          <label class="account-address__label">Complément</label>
+          <input type="text" name="addressCompl" class="account-address__input">
+        </div>
+        <div class="account-address__form-row">
+          <div class="account-address__form-group">
+            <label class="account-address__label">Code postal</label>
+            <input type="text" name="postcode" class="account-address__input" required>
+          </div>
+          <div class="account-address__form-group">
+            <label class="account-address__label">Ville</label>
+            <input type="text" name="city" class="account-address__input" required>
+          </div>
+        </div>
+        <div class="account-address__form-actions">
+          <button type="submit" class="btn btn--primary" data-js-address-submit>Enregistrer</button>
+          <button type="button" class="btn btn--ghost" data-js-address-cancel>Annuler</button>
+        </div>
+      </form>
+    </template>
+  </div>
+</div>

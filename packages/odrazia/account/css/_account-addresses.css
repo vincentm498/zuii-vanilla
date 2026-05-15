@@ -1,0 +1,109 @@
+.account-addresses__header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--spacing-4, 1rem);
+}
+
+.account-addresses__empty {
+  padding: var(--spacing-8, 2rem);
+  text-align: center;
+  color: var(--neutral-500, #64748b);
+}
+
+.account-addresses__table-wrapper {
+  overflow-x: auto;
+}
+
+.account-addresses__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.account-addresses__table th,
+.account-addresses__table td {
+  padding: var(--spacing-3, 0.75rem) var(--spacing-4, 1rem);
+  text-align: left;
+  border-bottom: 1px solid var(--neutral-100, #f1f5f9);
+}
+
+.account-addresses__table th {
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--neutral-600, #475569);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.account-addresses__row:hover {
+  background-color: var(--neutral-50, #f8fafc);
+}
+
+.account-addresses__cell-name {
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--neutral-900, #0f172a);
+}
+
+.account-addresses__cell-address {
+  color: var(--neutral-600, #475569);
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-addresses__cell-actions {
+  display: flex;
+  gap: var(--spacing-2, 0.5rem);
+}
+
+.account-addresses__pagination {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-4, 1rem) 0;
+}
+
+.account-address__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4, 1rem);
+}
+
+.account-address__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1, 0.25rem);
+}
+
+.account-address__form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4, 1rem);
+}
+
+.account-address__label {
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--neutral-700, #334155);
+}
+
+.account-address__input {
+  padding: var(--spacing-2, 0.5rem) var(--spacing-3, 0.75rem);
+  border: 1px solid var(--neutral-300, #cbd5e1);
+  border-radius: var(--radius-md, 0.375rem);
+  font-size: var(--font-size-base, 1rem);
+  color: var(--neutral-900, #0f172a);
+}
+
+.account-address__input:focus {
+  outline: none;
+  border-color: var(--primary-500, #5d5fef);
+  box-shadow: 0 0 0 3px var(--primary-100, #ebf0fe);
+}
+
+.account-address__form-actions {
+  display: flex;
+  gap: var(--spacing-3, 0.75rem);
+  justify-content: flex-end;
+  padding-top: var(--spacing-4, 1rem);
+  border-top: 1px solid var(--neutral-200, #e2e8f0);
+}

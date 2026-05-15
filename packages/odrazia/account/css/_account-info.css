@@ -1,0 +1,58 @@
+.account-info__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4, 1rem);
+}
+
+.account-info__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4, 1rem);
+}
+
+.account-info__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1, 0.25rem);
+}
+
+.account-info__label {
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-medium, 500);
+  color: var(--neutral-700, #334155);
+}
+
+.account-info__input {
+  padding: var(--spacing-2, 0.5rem) var(--spacing-3, 0.75rem);
+  border: 1px solid var(--neutral-300, #cbd5e1);
+  border-radius: var(--radius-md, 0.375rem);
+  font-size: var(--font-size-base, 1rem);
+  color: var(--neutral-900, #0f172a);
+  background: var(--white, #ffffff);
+  transition: border-color 0.15s ease;
+}
+
+.account-info__input:focus {
+  outline: none;
+  border-color: var(--primary-500, #5d5fef);
+  box-shadow: 0 0 0 3px var(--primary-100, #ebf0fe);
+}
+
+.account-info__input--disabled {
+  background: var(--neutral-100, #f1f5f9);
+  color: var(--neutral-500, #64748b);
+  cursor: not-allowed;
+}
+
+.account-info__fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4, 1rem);
+}
+
+.account-info__actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: var(--spacing-4, 1rem);
+  border-top: 1px solid var(--neutral-200, #e2e8f0);
+}

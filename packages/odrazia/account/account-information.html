@@ -1,0 +1,30 @@
+<div class="account-info" data-js-account-info>
+  <form class="account-info__form" data-js-info-form>
+    <div class="account-info__row">
+      <div class="account-info__group">
+        <label class="account-info__label" for="info-lastname">Nom</label>
+        <input type="text" id="info-lastname" name="lastname" class="account-info__input" required data-js-info-field="lastname">
+      </div>
+      <div class="account-info__group">
+        <label class="account-info__label" for="info-firstname">Prénom</label>
+        <input type="text" id="info-firstname" name="firstname" class="account-info__input" required data-js-info-field="firstname">
+      </div>
+    </div>
+    <div class="account-info__group">
+      <label class="account-info__label" for="info-email">Email</label>
+      <input type="email" id="info-email" name="email" class="account-info__input account-info__input--disabled" disabled data-js-info-field="email">
+    </div>
+    <div class="account-info__group">
+      <label class="account-info__label" for="info-group">Type de compte</label>
+      <input type="text" id="info-group" name="customerGroup" class="account-info__input account-info__input--disabled" disabled data-js-info-field="customerGroup">
+    </div>
+    <div class="account-info__group">
+      <label class="account-info__label" for="info-birthday">Date d'anniversaire</label>
+      <input type="date" id="info-birthday" name="birthday" class="account-info__input" data-js-info-field="birthday">
+    </div>
+    <div class="account-info__fields" data-js-info-custom-fields></div>
+    <div class="account-info__actions">
+      <button type="submit" class="btn btn--primary">Mettre à jour</button>
+    </div>
+  </form>
+</div>

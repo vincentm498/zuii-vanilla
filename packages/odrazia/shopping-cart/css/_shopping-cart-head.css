@@ -6,18 +6,18 @@
 .cart__head {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr; /* Structure standard Odrazia */
-  column-gap: var(--spacing-4);
-  padding: var(--spacing-5) var(--spacing-6);
-  background: var(--neutral-50);
-  border-bottom: 1px solid var(--neutral-200);
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  column-gap: var(--spacing-4, 1rem);
+  padding: var(--spacing-5, 1.25rem) var(--spacing-6, 1.5rem);
+  background: var(--neutral-50, #f8fafc);
+  border-bottom: 1px solid var(--neutral-200, #e2e8f0);
+  border-radius: var(--radius-lg, 0.5rem) var(--radius-lg, 0.5rem) 0 0;
 }
 
 .cart__head-item {
   margin: 0;
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
-  color: var(--neutral-500);
+  font-size: var(--font-size-xs, 0.75rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--neutral-500, #64748b);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   white-space: nowrap;

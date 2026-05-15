@@ -1,0 +1,29 @@
+.account-activation__message {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2, 0.5rem);
+  padding: var(--spacing-3, 0.75rem) var(--spacing-4, 1rem);
+  border-radius: var(--radius-md, 0.375rem);
+  font-size: var(--font-size-sm, 0.875rem);
+}
+
+.account-activation__message--warning {
+  background: var(--warning-50, #fffbeb);
+  border: 1px solid var(--warning-200, #fde68a);
+  color: var(--warning-800, #92400e);
+}
+
+.account-activation__link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--warning-700, #b45309);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.account-activation__link:hover {
+  color: var(--warning-900, #78350f);
+}
