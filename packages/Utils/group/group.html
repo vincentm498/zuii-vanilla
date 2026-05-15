@@ -1,5 +1,31 @@
-<div class="group">
-  <button class="btn btn--primary">Button 1</button>
-  <button class="btn btn--secondary">Button 2</button>
-  <button class="btn btn--outline">Button 3</button>
+<p>Utilisation de la classe <code>group</code> avec les modificateurs <code>--vertical</code> et <code>--no-wrap</code>
+  pour spécifier la direction et le retour à la ligne des éléments du groupe.</p>
+<div style="width: 100%; gap: var(--spacing-4); display: grid; grid-template-columns: repeat(1, 1fr);">
+
+  <div>
+    <label class="mb-1">Default</label>
+    <div class="group" style="background: var(--neutral-100); padding: var(--spacing-4);">
+      <button class="btn btn--primary">Button 1</button>
+      <button class="btn btn--secondary">Button 2</button>
+      <button class="btn btn--outline">Button 3</button>
+    </div>
+  </div>
+
+  <div>
+    <label class="mb-1">Vertical</label>
+    <div class="group group--vertical" style="background: var(--neutral-100); padding: var(--spacing-4);">
+      <button class="btn btn--primary">Button 1</button>
+      <button class="btn btn--secondary">Button 2</button>
+      <button class="btn btn--outline">Button 3</button>
+    </div>
+  </div>
+
+  <div>
+    <label class="mb-1">No wrap</label>
+    <div class="group group--no-wrap" style="background: var(--neutral-100); padding: var(--spacing-4);">
+      <button class="btn btn--primary">Long Button Text</button>
+      <button class="btn btn--secondary">Another Long Button</button>
+      <button class="btn btn--outline">Third Button</button>
+    </div>
+  </div>
 </div>
