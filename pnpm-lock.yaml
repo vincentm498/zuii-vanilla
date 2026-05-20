@@ -49,6 +49,8 @@ importers:
 
   packages/badge: {}
 
+  packages/breadcrumbs: {}
+
   packages/button: {}
 
   packages/card: {}

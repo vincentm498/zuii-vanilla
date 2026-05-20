@@ -1,10 +1,23 @@
 import { marked } from 'marked';
+import { escapeHtml } from './utils.js';
 
 /**
  * Support des classes dans le Markdown : {.ma-classe}
  * Cette extension détecte le pattern {.class1 .class2} et génère un marqueur HTML temporaire.
  */
 marked.use({
+  renderer: {
+    code({ text, lang }) {
+      const langClass = lang ? `language-${lang}` : '';
+      const escaped = text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+      return `<pre class="pg-code ${langClass}" tabindex="0"><code class="${langClass}">${escaped}</code></pre>\n`;
+    }
+  },
   extensions: [{
     name: 'classAttr',
     level: 'inline',

@@ -287,7 +287,7 @@ async function renderComponent(routeId) {
 
   // 6. Charger le script spécifique au composant s'il existe
   // On vérifie d'abord dans le glob (résolu par Vite) pour éviter les 404 réseau.
-  const packageBaseForScript = route.package.replace('@zuii/', '');
+  const packageBaseForScript = (route.package || '').replace('@zuii/', '');
 
   const initScripts = [
     `../packages/${packageBaseForScript}/${baseName}-init.ts`,
@@ -312,7 +312,17 @@ async function renderComponent(routeId) {
     }
   }
 
-  if (window.Prism) window.Prism.highlightAllUnder(viewContainer);
+  if (window.Prism) {
+    viewContainer.querySelectorAll('pre.pg-code code[class*="language-"]').forEach(el => {
+      Prism.highlightElement(el);
+    });
+    // Debug: check if tokens were generated
+    viewContainer.querySelectorAll('pre.pg-code code[class*="language-"]').forEach(el => {
+      const lang = el.className.replace('language-', '').split(' ')[0];
+      const hasTokens = el.querySelector('.token') !== null;
+      console.log(`[${lang}] tokens generated: ${hasTokens}, innerHTML length: ${el.innerHTML.length}`);
+    });
+  }
   if (window.lucide) window.lucide.createIcons();
 
   updateSidebarActive(routeId);

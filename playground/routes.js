@@ -12,6 +12,11 @@ export const routes = {
     isDoc: true,
     mdPath: '../docs/cli.md'
   },
+  'menu-personnalise': {
+    title: 'Menu Personnalisé',
+    isDoc: true,
+    mdPath: '../docs/menu-personnalise.md'
+  },
   icon: {
     title: 'Icons',
     package: '@zuii/Utils/icon',
